@@ -193,6 +193,7 @@ canvas {
 
   .navbar ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 10px 20px;
     margin: 0;
@@ -217,3 +218,24 @@ canvas {
     font-size: 1.4rem; /* Slightly increase size */
     color: white;
   }
+
+/* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar ul {
+          gap: 10px; /* Reduce spacing between items for smaller screens */
+        }
+  
+        .navbar ul li a {
+          font-size: 0.9rem; /* Slightly smaller font size */
+        }
+      }
+  
+      @media (max-width: 480px) {
+        .navbar ul {
+          gap: 5px; /* Even tighter spacing on very small screens */
+        }
+  
+        .navbar ul li a {
+          font-size: 0.8rem; /* Adjust font size for readability */
+        }
+      }

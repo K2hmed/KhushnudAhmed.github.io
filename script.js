@@ -93,6 +93,9 @@ function init() {
 }
 
 function animate() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.body.scrollHeight; // Adjust height to match the document
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particlesArray.forEach(particle => {
         particle.update();
@@ -104,7 +107,7 @@ function animate() {
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.body.scrollHeight; // Adjust height to match the document
     init();
 });
 
@@ -114,12 +117,16 @@ animate();
 
 
 /* New and can edit*/
-// Add smooth scrolling effect for internal navigation (optional)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+
+// JavaScript for fade-out effect on scroll
+const navbar = document.querySelector('.navbar');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > lastScrollY) {
+    navbar.classList.add('hidden'); // Hide when scrolling down
+  } else {
+    navbar.classList.remove('hidden'); // Show when scrolling up
+  }
+  lastScrollY = window.scrollY;
 });

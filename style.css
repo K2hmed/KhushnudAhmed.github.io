@@ -292,6 +292,10 @@
     .navbar ul {
       gap: 10px; 
     }
+
+    .navbar ul li {
+        margin: 0 10px; /* Reduce margin between nav items */
+    }
   
     .navbar ul li a {
       font-size: 0.9rem; 

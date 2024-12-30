@@ -11,30 +11,85 @@
 <body>
     <canvas id="geometricCanvas"></canvas>
 
-
-    
     <nav class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li> 
         </ul>
-      </nav>
-
-
+    </nav>
 
     <div class="container">
         <div class="content">
             <h1>Khushnud Ahmed</h1>
             <p>Data Analysis and Visualization Specialist</p>
-            <a href="mailto: ahmed.khushnood8@gmail.com?subject= &body= "><img src="icons/em.png" class="positioned-image">Email</a>
-            <a href="https://www.linkedin.com/in/khushnud-ahmed"><img src="icons/in.png" class="positioned-image">Linkedin</a>
-            <a href="https://github.com/K2hmed"><img src="icons/gi.png" class="positioned-image">GitHub</a>
+            <a href="mailto: ahmed.khushnood8@gmail.com?subject= &body= ">
+                <img src="icons/em.png" class="positioned-image">Email
+            </a>
+            <a href="https://www.linkedin.com/in/khushnud-ahmed">
+                <img src="icons/in.png" class="positioned-image">Linkedin
+            </a>
+            <a href="https://github.com/K2hmed">
+                <img src="icons/gi.png" class="positioned-image">GitHub
+            </a>
         </div>
+        <a href="#projects" class="scroll-down">⬇ Scroll Down</a>
     </div>
 
-
+    <section id="about" class="about-section">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="about-me-heading">About Me</h2> 
+            <p>
+              Hi, I'm [Your Name], a passionate [Your Profession/Field]. I specialize in creating modern, 
+              user-friendly designs and developing efficient solutions to complex problems. 
+              I am driven by curiosity and enjoy learning new technologies to grow both professionally 
+              and personally.
+            </p>
+            <button class="view-resume-btn" onclick="downloadResume()">View My Resume</button> 
+          </div>
+          <div class="about-image">
+            <img src="icons/p.png" alt="Khushnud Ahmed" /> 
+          </div>
+        </div>
+    
+        <div class="about-cards">
+          <div class="card">
+            <img src="icons/tmu.jpg" alt="TMU" class="card-icon"> 
+            <h3>Education</h3>
+            <p>3+ years in [Your Field]. Worked on multiple successful projects globally.</p>
+          </div>
+          <div class="card">
+            <img src="icons/ex.jpg" alt="Experience" class="card-icon"> 
+            <h3>Experience</h3>
+            <p>3+ years in [Your Field]. Worked on multiple successful projects globally.</p>
+          </div>
+          <div class="card">
+            <img src="icons/gr.jpg" alt="Technical Skills" class="card-icon"> 
+            <h3>Technical Skills</h3>
+            <ul class="skills-list"> 
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="icons/ts.jpg" alt="Transferable Skills" class="card-icon"> 
+            <h3>Transferable Skills</h3>
+            <ul class="skills-list"> 
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="icons/go.jpg" alt="Goals" class="card-icon"> 
+            <h3>Goals</h3>
+            <p>Continuously innovating and building impactful solutions in [Your Field].</p>
+          </div>
+        </div>
+      </section>
 
     <section id="projects">
         <h2>My Projects</h2>
@@ -43,7 +98,8 @@
                 <img src="icons/apple.jpg" alt="Project 1" />
                 <div class="project-details">
                     <h3>AAPL Stock Data Analysis</h3>
-                    <p>Unlock the secrets behind Apple Inc.s' stock performance with data-driven insights. Discover trends and patterns that shape AAPL's market success!</p>
+                    <p>Unlock the secrets behind Apple Inc.s' stock performance with data-driven insights. 
+                       Discover trends and patterns that shape AAPL's market success!</p>
                     <button onclick="window.location.href='project1.html';">View Project</button>
                 </div>
             </div>
@@ -52,14 +108,38 @@
                 <img src="icons/ai_guardian.png" alt="Project 2">
                 <div class="project-details">
                     <h3>Ai Guardian</h3>
-                    <p>Empower those with physical disabilities to call for help effortlessly through advanced AI assisstance. Discover the future of emergency assisstance!</p>
+                    <p>Empower those with physical disabilities to call for help effortlessly through advanced 
+                       AI assisstance. Discover the future of emergency assisstance!</p>
                     <button onclick="window.location.href='project2.html';">View Project</button>
                 </div>
             </div>
-
-
         </div>
     </section>
-    
+
+    <section id="contact" class="contact-section"> 
+        <div class="contact-content">
+          <h2>Contact Me</h2>
+          <p>Feel free to reach out if you have any questions or opportunities!</p>
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:ahmed.khsuhnood8@gmail.com"> 
+                <img src="icons/em.png" alt="Email Icon" class="contact-icon">
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/khushnud-ahmed"> 
+                <img src="icons/in.png" alt="LinkedIn Icon" class="contact-icon">
+              </a>
+            </li>
+          </ul>
+          <form class="contact-form" action="https://formspree.io/f/xdkkdavg" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+
 </body>
 </html>

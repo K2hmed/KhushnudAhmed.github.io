@@ -82,7 +82,14 @@ function connectParticles() {
 
 function init() {
     particlesArray = [];
-    for (let i = 0; i < 100; i++) {
+    let numParticles = 60; // Default number of particles
+
+    // Adjust the number of particles for smaller screens
+    if (window.innerWidth < 768) { 
+      numParticles = 30; // Reduce particles for mobile
+    }
+
+    for (let i = 0; i < numParticles; i++) {
         let size = Math.random() * 5 + 1;
         let x = Math.random() * (canvas.width - size * 2) + size;
         let y = Math.random() * (canvas.height - size * 2) + size;
@@ -130,3 +137,42 @@ window.addEventListener('scroll', () => {
   }
   lastScrollY = window.scrollY;
 });
+
+document.querySelector('.scroll-down').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+});
+
+
+
+const aboutMeHeading = document.querySelector('.about-me-heading');
+
+aboutMeHeading.addEventListener('mouseover', () => {
+    aboutMeHeading.style.transform = 'scale(1.1)'; 
+});
+
+aboutMeHeading.addEventListener('mouseout', () => {
+    aboutMeHeading.style.transform = 'scale(1)'; 
+});
+
+function downloadResume() {
+    const link = document.createElement('a');
+    link.href = 'Khushnud Ahmed - Resume.pdf'; // Replace with the actual path to your resume
+    link.download = 'KhushnudAhmed_Resume.pdf'; // Replace with your desired filename
+    link.click();
+}
+
+const contactSection = document.getElementById('contact');
+
+function handleScroll() {
+  const sectionTop = contactSection.offsetTop;
+  const scrollPosition = window.pageYOffset;
+
+  // Adjust the offset as needed 
+  if (scrollPosition > sectionTop - window.innerHeight / 2) { 
+    contactSection.classList.add('show');
+    window.removeEventListener('scroll', handleScroll);
+  }
+}
+
+window.addEventListener('scroll', handleScroll);

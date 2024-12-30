@@ -294,7 +294,7 @@
     }
 
     .navbar ul li {
-        margin: 0 10px; /* Reduce margin between nav items */
+        margin: 0 5px; /* Reduce margin between nav items */
     }
   
     .navbar ul li a {

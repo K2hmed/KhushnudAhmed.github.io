@@ -432,6 +432,7 @@
     padding: 20px;
     width: 450px;
     height: 500px;
+    overflow-y: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -451,11 +452,6 @@
     font-size: 1rem;
     color: #555;
     line-height: 1.5;
-    overflow-y: auto;
-    text-overflow: ellipsis; 
-    display: -webkit-box;
-    -webkit-line-clamp: 8; /* Limit to 5 lines */
-    -webkit-box-orient: vertical;
   }
   
   .card:hover {
@@ -480,10 +476,6 @@
     margin: 0;
     text-align: left;
     overflow-y: auto;
-    text-overflow: ellipsis; 
-    display: -webkit-box;
-    -webkit-line-clamp: 10; /* Limit to 5 lines */
-    -webkit-box-orient: vertical;
   }
   
   .skills-list li {

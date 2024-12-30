@@ -292,10 +292,6 @@
     .navbar ul {
       gap: 10px; 
     }
-
-    .navbar ul li {
-        margin: 0 8px; /* Reduce margin between nav items */
-    }
   
     .navbar ul li a {
       font-size: 0.9rem; 
@@ -305,6 +301,10 @@
   @media (max-width: 480px) {
     .navbar ul {
       gap: 5px;
+    }
+
+    .navbar ul li {
+        margin: 0 10px; /* Reduce margin between nav items */
     }
   
     .navbar ul li a {
@@ -430,8 +430,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 500px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -447,9 +447,15 @@
   }
   
   .card p {
+    text-align: left;
     font-size: 1rem;
     color: #555;
     line-height: 1.5;
+    overflow-y: auto;
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 8; /* Limit to 5 lines */
+    -webkit-box-orient: vertical;
   }
   
   .card:hover {
@@ -457,11 +463,27 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   }
 
+  .technical-skills-images {
+    display: flex;
+    justify-content: space-around; /* Distribute images evenly */
+    margin-bottom: 10px; /* Add space below the images */
+  }
+  
+  .technical-skills-images img {
+    width: 20%; /* Adjust image width as needed */
+    height: 20%;
+  }
+
   .skills-list { 
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: left;
+    overflow-y: auto;
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 10; /* Limit to 5 lines */
+    -webkit-box-orient: vertical;
   }
   
   .skills-list li {

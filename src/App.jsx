@@ -32,7 +32,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(67, 65, 65, 0.55),rgba(255,255,255,0.9)_55%,rgba(82, 128, 227, 0.35))]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(255,178,160,0.55),rgba(255,255,255,0.9)_55%,rgba(180,240,235,0.35))]">
       <Gate
         open={gateOpen}
         defaultChoice={visitorType ?? "recruiter"}

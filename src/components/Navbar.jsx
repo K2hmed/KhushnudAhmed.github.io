@@ -1,0 +1,53 @@
+import React from "react";
+
+export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
+  const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-white/40 bg-white/25 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-4">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-900 text-white font-semibold">
+            SD
+          </div>
+
+          <nav className="hidden items-center gap-6 md:flex">
+            {links.map((t) => (
+              <a
+                key={t}
+                href={`#${t.toLowerCase()}`}
+                className="text-xs tracking-widest text-neutral-700 hover:text-neutral-900"
+              >
+                {t.toUpperCase()}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            className="hidden rounded-full border border-neutral-300 bg-white/60 px-5 py-2 text-sm font-semibold text-neutral-800 hover:bg-white md:inline-flex"
+            onClick={() => alert("Hook this to a modal listing your stack.")}
+          >
+            {rightPillLabel}
+          </button>
+
+          <a
+            href="#contact"
+            className="rounded-full bg-rose-300 px-5 py-2 text-sm font-semibold text-white hover:bg-rose-400"
+          >
+            {rightCTA}
+          </a>
+
+          <button
+            onClick={onReset}
+            className="ml-1 rounded-full border border-neutral-200 bg-white/50 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-white"
+            title="Reset visitor choice"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}

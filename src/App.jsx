@@ -1,8 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Gate from "./components/Gate.jsx";
 import Navbar from "./components/Navbar.jsx";
-import RecruiterView from "./views/RecruiterView.jsx";
-import StudentView from "./views/StudentView.jsx";
+import PortfolioView from "./views/PortfolioView.jsx";
 
 const STORAGE_KEY = "portfolio_visitor_type"; // "recruiter" | "student"
 
@@ -47,11 +46,10 @@ export default function App() {
       />
 
       <main className="mx-auto max-w-6xl px-6 pb-20 pt-10">
-        {visitorType === "student" ? (
-          <StudentView visitorType={visitorType} onSwitch={switchType} />
-        ) : (
-          <RecruiterView visitorType={visitorType ?? "recruiter"} onSwitch={switchType} />
-        )}
+        <PortfolioView
+          visitorType={visitorType ?? "recruiter"}
+          onSwitch={switchType}
+        />
       </main>
     </div>
   );

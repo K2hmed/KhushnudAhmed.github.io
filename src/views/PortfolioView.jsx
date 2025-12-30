@@ -2,7 +2,27 @@ import React from "react";
 import Section from "../components/Section.jsx";
 import Card from "../components/Card.jsx";
 
-export default function RecruiterView({ visitorType, onSwitch }) {
+export default function PortfolioView({ visitorType, onSwitch }) {
+  const isStudent = visitorType === "student";
+
+  const visitorCard = isStudent
+    ? {
+        label: "STUDENT",
+        title: "Looking for tutoring or project support",
+        body:
+          "I help with ML foundations, Python workflows, and project debugging. If you’re stuck, I can guide your next steps and review your approach.",
+        ctaText: "Ask About Tutoring",
+        ctaHref: "#contact",
+      }
+    : {
+        label: "RECRUITER",
+        title: "Fast overview for hiring teams",
+        body:
+          "I’m open to AI Engineer, ML Engineer, and data analyst roles. I build production-minded ML systems, especially for healthcare workflows and NLP-driven applications.",
+        ctaText: "Download Resume",
+        ctaHref: "/resume.pdf",
+      };
+
   return (
     <>
       {/* HERO */}
@@ -31,7 +51,7 @@ export default function RecruiterView({ visitorType, onSwitch }) {
           </p>
 
           <p className="mt-6 text-sm font-semibold text-rose-400">
-            Scholarship / Award line · Hackathon win line · Anything strong and short
+            Scholarship / Award line · Hackathon win line
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -57,14 +77,19 @@ export default function RecruiterView({ visitorType, onSwitch }) {
         </div>
 
         <div className="space-y-4">
+          {/* WHO'S VISITING CARD */}
           <Card className="p-7">
-            <div className="text-xs tracking-widest text-neutral-600">WHO’S VISITING?</div>
+            <div className="text-xs tracking-widest text-neutral-600">
+              WHO’S VISITING?
+            </div>
 
             <div className="mt-4 flex items-center gap-3">
-              <div className="h-11 w-11 rounded-full bg-neutral-300" />
+              <div className="h-11 w-11 overflow-hidden rounded-full bg-neutral-300" />
               <div>
                 <div className="font-semibold text-neutral-900">Your Name</div>
-                <div className="text-sm text-neutral-600">AI Engineer · Data Analyst</div>
+                <div className="text-sm text-neutral-600">
+                  AI Engineer · Data Analyst
+                </div>
               </div>
             </div>
 
@@ -74,18 +99,19 @@ export default function RecruiterView({ visitorType, onSwitch }) {
                   onClick={() => onSwitch("recruiter")}
                   className={[
                     "h-10 rounded-full text-sm font-semibold",
-                    visitorType === "recruiter"
+                    !isStudent
                       ? "bg-neutral-900 text-white"
                       : "text-neutral-700 hover:bg-white",
                   ].join(" ")}
                 >
                   Recruiter
                 </button>
+
                 <button
                   onClick={() => onSwitch("student")}
                   className={[
                     "h-10 rounded-full text-sm font-semibold",
-                    visitorType === "student"
+                    isStudent
                       ? "bg-neutral-900 text-white"
                       : "text-neutral-700 hover:bg-white",
                   ].join(" ")}
@@ -95,24 +121,25 @@ export default function RecruiterView({ visitorType, onSwitch }) {
               </div>
             </div>
 
-            <div className="mt-6 text-xs tracking-widest text-rose-400">RECRUITER</div>
-            <div className="mt-2 text-xl font-semibold text-neutral-900">
-              Fast overview for hiring teams
+            <div className="mt-6 text-xs tracking-widest text-rose-400">
+              {visitorCard.label}
             </div>
-            <p className="mt-3 text-neutral-700">
-              I’m open to AI Engineer, ML Engineer, and data analyst roles. I build
-              production-minded ML systems, especially for healthcare workflows and
-              NLP-driven applications.
-            </p>
+
+            <div className="mt-2 text-xl font-semibold text-neutral-900">
+              {visitorCard.title}
+            </div>
+
+            <p className="mt-3 text-neutral-700">{visitorCard.body}</p>
 
             <a
-              href="/resume.pdf"
+              href={visitorCard.ctaHref}
               className="mt-5 inline-block text-sm font-semibold text-rose-400 hover:text-rose-500"
             >
-              Download Resume
+              {visitorCard.ctaText}
             </a>
           </Card>
 
+          {/* STATS (same for both, like your screenshots) */}
           <Card className="grid grid-cols-3 gap-6 bg-white/60 p-7">
             <Stat value="7,900+" label="Healthcare records modeled" />
             <Stat value="95%" label="Epilepsy prediction accuracy" />
@@ -121,6 +148,15 @@ export default function RecruiterView({ visitorType, onSwitch }) {
         </div>
       </section>
 
+      {/* CURRENTLY WORKING ON (optional strip like screenshot) */}
+      <div className="mt-10 rounded-[26px] bg-white/55 p-6 shadow-soft backdrop-blur">
+        <div className="text-xs tracking-widest text-neutral-600">CURRENTLY WORKING ON</div>
+        <div className="mt-2 text-neutral-800">Research Assistant: AI chatbot qualitative study</div>
+
+        <div className="mt-5 text-xs tracking-widest text-neutral-600">OPEN TO</div>
+        <div className="mt-2 text-neutral-800">Full-time or contract opportunities</div>
+      </div>
+
       {/* PROJECTS */}
       <Section
         id="projects"
@@ -128,12 +164,16 @@ export default function RecruiterView({ visitorType, onSwitch }) {
         subtitle="Applied AI and analytics work across healthcare, NLP, and scalable data systems."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ProjectCard title="Healthcare AI: Seizure Prediction" />
+          <ProjectCard title="Healthcare AI: Epilepsy Seizure Prediction" />
           <ProjectCard title="Stroke Risk Prediction on AWS" />
           <ProjectCard title="Alzheimer’s Stage Classification" />
           <ProjectCard title="RAG Scientific QA Assistant" />
           <ProjectCard title="Energy Analytics Pipeline" />
           <ProjectCard title="Sales & Profit Forecasting" />
+          <ProjectCard title="Generative Design Prototyping" />
+          <ProjectCard title="Entropy Biomarkers in Cancer" />
+          <ProjectCard title="Document & Knowledge AI" />
+          <ProjectCard title="Global Disease Burden Analyzer" />
         </div>
       </Section>
 
@@ -149,8 +189,8 @@ export default function RecruiterView({ visitorType, onSwitch }) {
             org="Toronto Metropolitan University"
             dates="Sep 2024 – Aug 2025"
             bullets={[
-              "Built end-to-end AI pipelines on thousands of patient records blending structured and unstructured data.",
-              "Developed predictive models with robust validation, interpretability, and reliability focus.",
+              "Built end-to-end AI pipelines on 7,900+ patient records, blending structured and unstructured clinical data.",
+              "Developed predictive and survival models with robust validation, interpretability, and reliability focus.",
               "Designed production-grade Python workflows for ingestion, feature engineering, training, and evaluation.",
             ]}
           />
@@ -159,8 +199,26 @@ export default function RecruiterView({ visitorType, onSwitch }) {
             org="Company (Remote)"
             dates="Jan 2024 – May 2024"
             bullets={[
-              "Delivered production-style generative AI pipelines to accelerate content creation.",
-              "Built inference and evaluation workflows bridging experimentation to deployment-ready systems.",
+              "Delivered production-style generative AI pipelines to accelerate content creation by ~40%.",
+              "Built inference and evaluation workflows that bridged experimentation to deployment-ready systems.",
+            ]}
+          />
+          <Role
+            title="Graduate Assistant (Technical Systems Support)"
+            org="Toronto Metropolitan University"
+            dates="Jan 2025 – Aug 2025"
+            bullets={[
+              "Supported ML pipeline debugging, validation, and failure analysis under time constraints.",
+              "Provided technical support for student labs and system-level troubleshooting.",
+            ]}
+          />
+          <Role
+            title="Quality Engineering & Assurance Intern"
+            org="Cognizant"
+            dates="Feb 2023 – Jul 2023"
+            bullets={[
+              "Automated QA testing with Selenium-Java, reducing manual effort and improving site performance.",
+              "Collaborated with cross-functional teams to improve test coverage and defect detection.",
             ]}
           />
         </div>
@@ -216,17 +274,17 @@ export default function RecruiterView({ visitorType, onSwitch }) {
           <EduCard
             title="MSc, Data Science & Analytics"
             org="Toronto Metropolitan University"
-            meta="Scholarship / Award · GPA line"
+            meta="Vector Scholarship in AI · Hack the World Hackathon Winner · GPA: X/4.33"
           />
           <EduCard
             title="Graduate Certificate, AI & Machine Learning"
-            org="College Name"
-            meta="Dean’s Honour List · Grade line"
+            org="Humber College"
+            meta="Dean’s Honour List · Grade: 92.5%"
           />
           <EduCard
             title="BTech, Computer Science & Engineering"
-            org="University Name"
-            meta="CGPA line"
+            org="Your University"
+            meta="CGPA: 9.2/10"
           />
         </div>
       </Section>
@@ -239,11 +297,11 @@ export default function RecruiterView({ visitorType, onSwitch }) {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <QuoteCard
-            quote="Explained core concepts with patience and clarity. Students left confident and prepared."
+            quote="Explained core Java concepts with patience and clarity. Students left labs confident and prepared."
             who="Professor, Software Engineering"
           />
           <QuoteCard
-            quote="Broke down SQL step-by-step and helped me build a working analytics project quickly."
+            quote="Broke down SQL queries step-by-step and helped me build a working analytics project quickly."
             who="Student, Data Analytics"
           />
           <QuoteCard
@@ -257,7 +315,7 @@ export default function RecruiterView({ visitorType, onSwitch }) {
       <Section
         id="contact"
         title="Let’s connect"
-        subtitle="Open to AI Engineer, ML Engineer, and data analyst roles."
+        subtitle="Open to AI Engineer, ML Engineer, and data analyst roles. Available for tutoring support on ML projects."
       >
         <div className="rounded-[28px] bg-neutral-900/80 p-8 text-white shadow-soft">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -312,7 +370,7 @@ function ProjectCard({ title }) {
       <div className="p-6">
         <div className="text-lg font-semibold text-neutral-900">{title}</div>
         <p className="mt-2 text-neutral-700">
-          One-line impact statement. Add metrics if you can.
+          Replace this with your 1–2 line impact statement.
         </p>
         <button className="mt-4 text-sm font-semibold text-neutral-600 hover:text-neutral-900">
           SHOW MORE

@@ -204,6 +204,7 @@ export default function Navbar({
                     className={[
                       "h-2.5 w-2.5 rounded-full",
                       toolDotClass(t),
+                      "animate-soft-pulse",
                       "shadow-[0_0_0_3px_rgba(255,255,255,0.55)] dark:shadow-[0_0_0_3px_rgba(15,23,42,0.55)]",
                     ].join(" ")}
                     aria-hidden="true"

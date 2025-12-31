@@ -34,12 +34,10 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
 
           <a
             href="#contact"
-            className="
-            text-sm font-semibold tracking-wide
-            text-slate-700 dark:text-slate-300
-            hover:text-slate-900 dark:hover:text-white
-            transition-colors
-            "
+            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white
+                       hover:brightness-95 active:brightness-90
+                       focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
+                       focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             {rightCTA}
           </a>

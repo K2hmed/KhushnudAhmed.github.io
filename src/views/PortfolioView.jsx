@@ -32,7 +32,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             AI ENGINEER + DATA ANALYST · HEALTHCARE AI · TORONTO, ON · OPEN TO ROLES
           </div>
 
-          <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-neutral-900">
+          <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-muted">
             YourName builds{" "}
             <span className="text-rose-300">adaptive</span>{" "}
             <span className="text-emerald-300">AI systems</span>
@@ -44,7 +44,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             language intelligence.
           </h1>
 
-          <p className="mt-6 max-w-xl text-neutral-700">
+          <p className="mt-6 max-w-xl text-muted">
             Machine learning, data science, and analytics builder with hands-on
             experience in NLP, RAG, and predictive modeling. Comfortable taking
             models from idea to deployment-ready pipelines.
@@ -63,13 +63,13 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             </a>
             <a
               href="#skills"
-              className="rounded-full border border-neutral-200 bg-white/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
+              className="rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
             >
               View My Skillset
             </a>
             <a
               href="#contact"
-              className="rounded-full border border-neutral-200 bg-white/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
+              className="rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
             >
               Contact Me
             </a>
@@ -86,36 +86,38 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <div className="mt-4 flex items-center gap-3">
               <div className="h-11 w-11 overflow-hidden rounded-full bg-neutral-300" />
               <div>
-                <div className="font-semibold text-neutral-900">Your Name</div>
+                <div className="font-semibold text-fg">Your Name</div>
                 <div className="text-sm text-neutral-600">
                   AI Engineer · Data Analyst
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 rounded-full bg-white/60 p-1">
+            <div className="mt-5 rounded-full bg-surface/50 p-1 border border-border/70">
               <div className="grid grid-cols-2 gap-1">
                 <button
                   onClick={() => onSwitch("recruiter")}
                   className={[
-                    "h-10 rounded-full text-sm font-semibold",
+                    "h-10 rounded-full text-sm font-semibold transition-colors",
                     !isStudent
-                      ? "bg-neutral-900 text-white"
-                      : "text-neutral-700 hover:bg-white",
+                    ? "bg-fg text-bg"
+                    : "text-fg hover:bg-surface/70",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
                   ].join(" ")}
-                >
+                  >
                   Recruiter
                 </button>
-
+                
                 <button
                   onClick={() => onSwitch("student")}
                   className={[
-                    "h-10 rounded-full text-sm font-semibold",
+                    "h-10 rounded-full text-sm font-semibold transition-colors",
                     isStudent
-                      ? "bg-neutral-900 text-white"
-                      : "text-neutral-700 hover:bg-white",
+                    ? "bg-fg text-bg"
+                    : "text-fg hover:bg-surface/70",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
                   ].join(" ")}
-                >
+                  >
                   Student
                 </button>
               </div>
@@ -125,11 +127,11 @@ export default function PortfolioView({ visitorType, onSwitch }) {
               {visitorCard.label}
             </div>
 
-            <div className="mt-2 text-xl font-semibold text-neutral-900">
+            <div className="mt-2 text-xl font-semibold text-fg">
               {visitorCard.title}
             </div>
 
-            <p className="mt-3 text-neutral-700">{visitorCard.body}</p>
+            <p className="mt-3 text-muted">{visitorCard.body}</p>
 
             <a
               href={visitorCard.ctaHref}
@@ -140,7 +142,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </Card>
 
           {/* STATS (same for both, like your screenshots) */}
-          <Card className="grid grid-cols-3 gap-6 bg-white/60 p-7">
+          <Card className="grid grid-cols-3 gap-6 bg-surface/60 p-7">
             <Stat value="7,900+" label="Healthcare records modeled" />
             <Stat value="95%" label="Epilepsy prediction accuracy" />
             <Stat value="40%" label="Design iteration time reduced" />
@@ -149,7 +151,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       </section>
 
       {/* TOP STRIP */}
-      <div className="mt-10 rounded-[28px] bg-white/60 px-7 py-6 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
+      <div className="mt-10 rounded-[28px] bg-surface/60 px-7 py-6 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
         <div className="space-y-5">
           <div>
             <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">
@@ -346,7 +348,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:your.email@gmail.com"
-                className="h-12 rounded-full bg-amber-200/90 text-center text-sm font-semibold text-neutral-900 leading-[3rem] hover:bg-amber-200"
+                className="h-12 rounded-full bg-amber-200/90 text-center text-sm font-semibold text-fg leading-[3rem] hover:bg-amber-200"
               >
                 Email me
               </a>
@@ -371,8 +373,8 @@ export default function PortfolioView({ visitorType, onSwitch }) {
 function Stat({ value, label }) {
   return (
     <div>
-      <div className="text-3xl font-semibold text-neutral-900">{value}</div>
-      <div className="mt-2 text-sm text-neutral-700">{label}</div>
+      <div className="text-3xl font-semibold text-fg">{value}</div>
+      <div className="mt-2 text-sm text-muted">{label}</div>
     </div>
   );
 }
@@ -380,13 +382,13 @@ function Stat({ value, label }) {
 function ProjectCard({ title }) {
   return (
     <Card className="p-0 overflow-hidden">
-      <div className="h-44 bg-white/60" />
+      <div className="h-44 bg-surface/60" />
       <div className="p-6">
-        <div className="text-lg font-semibold text-neutral-900">{title}</div>
-        <p className="mt-2 text-neutral-700">
+        <div className="text-lg font-semibold text-fg">{title}</div>
+        <p className="mt-2 text-muted">
           Replace this with your 1–2 line impact statement.
         </p>
-        <button className="mt-4 text-sm font-semibold text-neutral-600 hover:text-neutral-900">
+        <button className="mt-4 text-sm font-semibold text-neutral-600 hover:text-fg">
           SHOW MORE
         </button>
       </div>
@@ -399,12 +401,12 @@ function Role({ title, org, dates, bullets }) {
     <Card>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <div className="text-xl font-semibold text-neutral-900">{title}</div>
-          <div className="text-neutral-700">{org}</div>
+          <div className="text-xl font-semibold text-fg">{title}</div>
+          <div className="text-muted">{org}</div>
         </div>
         <div className="text-sm text-neutral-600">{dates}</div>
       </div>
-      <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700">
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
         {bullets.map((b) => (
           <li key={b}>{b}</li>
         ))}
@@ -416,8 +418,8 @@ function Role({ title, org, dates, bullets }) {
 function SkillCard({ title, items }) {
   return (
     <Card>
-      <div className="text-xl font-semibold text-neutral-900">{title}</div>
-      <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700">
+      <div className="text-xl font-semibold text-fg">{title}</div>
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
         {items.map((i) => (
           <li key={i}>{i}</li>
         ))}
@@ -429,9 +431,9 @@ function SkillCard({ title, items }) {
 function EduCard({ title, org, meta }) {
   return (
     <Card>
-      <div className="text-xl font-semibold text-neutral-900">{title}</div>
-      <div className="mt-2 text-neutral-700">{org}</div>
-      <div className="mt-4 text-neutral-700">{meta}</div>
+      <div className="text-xl font-semibold text-fg">{title}</div>
+      <div className="mt-2 text-muted">{org}</div>
+      <div className="mt-4 text-muted">{meta}</div>
     </Card>
   );
 }
@@ -440,7 +442,7 @@ function QuoteCard({ quote, who }) {
   return (
     <Card>
       <div className="text-neutral-800">“{quote}”</div>
-      <div className="mt-6 text-sm font-semibold text-neutral-700">— {who}</div>
+      <div className="mt-6 text-sm font-semibold text-muted">— {who}</div>
     </Card>
   );
 }

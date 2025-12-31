@@ -122,9 +122,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
               {visitorCard.label}
             </div>
 
-            <div className="mt-2 text-xl font-semibold text-fg">
-              {visitorCard.title}
-            </div>
+            <div className="mt-2 text-xl font-semibold text-fg">{visitorCard.title}</div>
 
             <p className="mt-3 text-muted">{visitorCard.body}</p>
 
@@ -375,23 +373,39 @@ function Stat({ value, label }) {
   );
 }
 
+/**
+ * PROJECTS: hover lift + subtle ring outline + better cover block + keyboard focus
+ */
 function ProjectCard({ title }) {
   return (
-    <Card className="p-0 overflow-hidden">
-      <div className="h-44 bg-surface/60" />
+    <Card className="relative group p-0 overflow-hidden transition-transform duration-200 hover:-translate-y-1">
+      {/* cover */}
+      <div className="h-44 bg-surface2/70 border-b border-border/60" />
+
       <div className="p-6">
         <div className="text-lg font-semibold text-fg">{title}</div>
         <p className="mt-2 text-muted">
           Replace this with your 1–2 line impact statement.
         </p>
-        <button className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors">
+
+        <button
+          className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
+                     focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        >
           SHOW MORE
         </button>
       </div>
+
+      {/* subtle hover outline */}
+      <div className="pointer-events-none absolute inset-0 rounded-xl2 ring-1 ring-transparent group-hover:ring-border/70 transition" />
     </Card>
   );
 }
 
+/**
+ * EXPERIENCE: stronger bullet readability using tokens
+ */
 function Role({ title, org, dates, bullets }) {
   return (
     <Card>
@@ -402,7 +416,8 @@ function Role({ title, org, dates, bullets }) {
         </div>
         <div className="text-sm text-muted">{dates}</div>
       </div>
-      <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
+
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-fg/80">
         {bullets.map((b) => (
           <li key={b}>{b}</li>
         ))}
@@ -411,11 +426,14 @@ function Role({ title, org, dates, bullets }) {
   );
 }
 
+/**
+ * SKILLS: stronger bullet readability using tokens
+ */
 function SkillCard({ title, items }) {
   return (
     <Card>
       <div className="text-xl font-semibold text-fg">{title}</div>
-      <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-fg/80">
         {items.map((i) => (
           <li key={i}>{i}</li>
         ))}

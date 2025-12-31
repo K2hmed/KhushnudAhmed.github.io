@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../components/Section.jsx";
 import Card from "../components/Card.jsx";
+import VisitorToggle from "../components/VisitorToggle";
 
 export default function PortfolioView({ visitorType, onSwitch }) {
   const isStudent = visitorType === "student";
@@ -92,30 +93,8 @@ export default function PortfolioView({ visitorType, onSwitch }) {
               </div>
             </div>
 
-            <div className="mt-5 rounded-full border border-border/70 bg-surface/50 p-1">
-              <div className="grid grid-cols-2 gap-1">
-                <button
-                  onClick={() => onSwitch("recruiter")}
-                  className={[
-                    "h-10 rounded-full text-sm font-semibold transition-colors",
-                    !isStudent ? "bg-fg text-bg" : "text-fg hover:bg-surface/70",
-                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                  ].join(" ")}
-                >
-                  Recruiter
-                </button>
-
-                <button
-                  onClick={() => onSwitch("student")}
-                  className={[
-                    "h-10 rounded-full text-sm font-semibold transition-colors",
-                    isStudent ? "bg-fg text-bg" : "text-fg hover:bg-surface/70",
-                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                  ].join(" ")}
-                >
-                  Student
-                </button>
-              </div>
+            <div className="mt-5">
+              <VisitorToggle value={visitorType} onChange={onSwitch} />
             </div>
 
             <div className="mt-6 text-xs tracking-widest text-accent">

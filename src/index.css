@@ -3,7 +3,29 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  /* Quiet Authority (Light) */
+  --bg: 246 244 239;         /* #F6F4EF */
+  --surface: 255 255 255;    /* cards */
+  --surface2: 250 249 246;   /* alt surface */
+  --fg: 31 41 51;            /* #1F2933 */
+  --muted: 95 107 122;       /* #5F6B7A */
+  --border: 229 231 235;     /* #E5E7EB */
+  --accent: 224 122 95;      /* #E07A5F */
+  --accent2: 58 125 124;     /* #3A7D7C */
+  --ring: 224 122 95;
+}
+
+.dark {
+  /* Quiet Authority (Dark) */
+  --bg: 14 18 22;
+  --surface: 22 28 34;
+  --surface2: 18 23 28;
+  --fg: 239 244 248;
+  --muted: 169 179 189;
+  --border: 45 56 66;
+  --accent: 240 142 116;
+  --accent2: 116 196 192;
+  --ring: 240 142 116;
 }
 
 html, body {

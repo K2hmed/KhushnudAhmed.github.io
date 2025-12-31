@@ -8,7 +8,7 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-4">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-900 text-white font-semibold">
-            SD
+            KA
           </div>
 
           <nav className="hidden items-center gap-6 md:flex">

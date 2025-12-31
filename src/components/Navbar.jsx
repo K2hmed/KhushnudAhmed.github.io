@@ -4,19 +4,28 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
   const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b border-slate-200/70 dark:bg-slate-900/50 dark:border-slate-700/60">
+    <header className="sticky top-0 z-40 bg-white/75 backdrop-blur-md border-b border-slate-200/70 dark:bg-slate-900/70 dark:border-slate-700/60">
       <div className="mx-auto flex w-full max-w-[85rem] items-center justify-between px-6 py-4 lg:px-8">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">
             KA
           </div>
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden md:flex items-center gap-8">
             {links.map((t) => (
               <a
                 key={t}
                 href={`#${t.toLowerCase()}`}
-                className="text-xs tracking-widest text-muted hover:text-fg transition-colors"
+                className="
+                  relative text-sm font-semibold tracking-wide
+                  text-muted hover:text-fg
+                  transition-colors
+                  after:absolute after:left-0 after:-bottom-1
+                  after:h-[1.5px] after:w-0
+                  after:bg-slate-400/70 dark:after:bg-slate-500/70
+                  after:transition-all after:duration-200
+                  hover:after:w-full
+                "
               >
                 {t.toUpperCase()}
               </a>

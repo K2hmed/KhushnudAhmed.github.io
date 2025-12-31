@@ -32,7 +32,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-bg text-fg [scroll-padding-top:96px] scroll-smooth">
+    <div className="min-h-screen bg-bg text-fg">
       <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(170,195,210,0.42),rgba(248,249,247,0.96)_45%,rgba(205,215,220,0.55))] dark:bg-[radial-gradient(circle_at_top,rgba(85,110,125,0.35),rgba(13,17,20,0.96)_50%,rgba(55,65,72,0.45))]">
         
         <Gate

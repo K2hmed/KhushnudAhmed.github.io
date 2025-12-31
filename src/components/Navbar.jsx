@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightCTA = "Let’s connect" }) {
+export default function Navbar({
+  onReset,
+  rightPillLabel = "Tools Stack",
+  rightCTA = "Let’s connect",
+}) {
   const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -26,6 +30,31 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
     []
   );
 
+  // Calm + professional dot palette (light + dark)
+  function toolDotClass(name) {
+    const key = name.toLowerCase();
+
+    // Blue (engineering / cloud)
+    if (/(aws|azure|gcp|cloud)/.test(key)) return "bg-sky-500/70 dark:bg-sky-400/75";
+
+    // Teal (data / pipelines)
+    if (/(sql|pyspark|hadoop|hdfs|kibana|etl|pipeline)/.test(key))
+      return "bg-teal-500/70 dark:bg-teal-400/75";
+
+    // Coral (product / delivery)
+    if (/(excel|tableau|dashboard|bi)/.test(key)) return "bg-rose-500/70 dark:bg-rose-400/75";
+
+    // Lavender (research / stats)
+    if (/(bayes|stats|math|analysis)/.test(key)) return "bg-violet-500/65 dark:bg-violet-400/75";
+
+    // Sand (ML frameworks / AI)
+    if (/(pytorch|tensorflow|langchain|nlp|ml|ai)/.test(key))
+      return "bg-amber-500/65 dark:bg-amber-400/75";
+
+    // Default: slate
+    return "bg-slate-500/60 dark:bg-slate-400/70";
+  }
+
   // Close on ESC + lock scroll when open
   useEffect(() => {
     function onKeyDown(e) {
@@ -50,13 +79,12 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
               KA
             </div>
 
-            {/* Centered-ish nav: give it its own space and align visually */}
             <nav className="hidden md:flex items-center gap-7 ml-6">
               {links.map((t) => (
                 <a
                   key={t}
                   href={`#${t.toLowerCase()}`}
-                  className="text-sm font-semibold tracking-[0.14em] text-muted hover:text-accent hover:font-bold hover:scale-105 transition-all duration-200"
+                  className="text-sm font-semibold tracking-[0.14em] text-muted hover:text-fg transition-colors"
                 >
                   {t.toUpperCase()}
                 </a>
@@ -65,7 +93,6 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Tools Stack -> Drawer */}
             <button
               type="button"
               className="hidden rounded-full border border-border bg-surface/55 px-5 py-2 text-sm font-semibold text-fg hover:bg-surface/75 transition-colors md:inline-flex"
@@ -89,7 +116,9 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
               className="rounded-full border border-border bg-surface/45 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
               onClick={() => {
                 document.documentElement.classList.toggle("dark");
-                localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+                localStorage.theme = document.documentElement.classList.contains("dark")
+                  ? "dark"
+                  : "light";
               }}
               title="Toggle dark mode"
             >
@@ -165,12 +194,21 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
                 <div
                   key={t}
                   className={[
-                    "rounded-2xl border border-border/70 bg-surface/55 px-4 py-3",
+                    "group rounded-2xl border border-border/70 bg-surface/55 px-4 py-3",
                     "text-sm font-semibold text-fg",
                     "hover:bg-surface/75 transition-colors",
+                    "flex items-center gap-3",
                   ].join(" ")}
                 >
-                  {t}
+                  <span
+                    className={[
+                      "h-2.5 w-2.5 rounded-full",
+                      toolDotClass(t),
+                      "shadow-[0_0_0_3px_rgba(255,255,255,0.55)] dark:shadow-[0_0_0_3px_rgba(15,23,42,0.55)]",
+                    ].join(" ")}
+                    aria-hidden="true"
+                  />
+                  <span className="leading-none">{t}</span>
                 </div>
               ))}
             </div>

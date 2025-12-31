@@ -148,13 +148,27 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         </div>
       </section>
 
-      {/* CURRENTLY WORKING ON (optional strip like screenshot) */}
-      <div className="mt-10 rounded-[26px] bg-white/55 p-6 shadow-soft backdrop-blur">
-        <div className="text-xs tracking-widest text-neutral-600">CURRENTLY WORKING ON</div>
-        <div className="mt-2 text-neutral-800">Research Assistant: AI chatbot qualitative study</div>
-
-        <div className="mt-5 text-xs tracking-widest text-neutral-600">OPEN TO</div>
-        <div className="mt-2 text-neutral-800">Full-time or contract opportunities</div>
+      {/* TOP STRIP */}
+      <div className="mt-10 rounded-[28px] bg-white/60 px-7 py-6 shadow-soft backdrop-blur">
+        <div className="space-y-5">
+          <div>
+            <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">
+              CURRENTLY WORKING ON
+            </div>
+            <div className="mt-2 text-[15px] leading-relaxed text-neutral-800">
+              Research Assistant: AI chatbot qualitative study
+            </div>
+          </div>
+          
+          <div>
+            <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">
+              OPEN TO
+            </div>
+            <div className="mt-2 text-[15px] leading-relaxed text-neutral-800">
+              Full-time or contract opportunities
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* PROJECTS */}

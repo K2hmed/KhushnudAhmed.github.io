@@ -4,19 +4,21 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
   const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/40 bg-white/25 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-900 text-white font-semibold">
+          {/* Logo */}
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">
             KA
           </div>
 
+          {/* Nav links */}
           <nav className="hidden items-center gap-6 md:flex">
             {links.map((t) => (
               <a
                 key={t}
                 href={`#${t.toLowerCase()}`}
-                className="text-xs tracking-widest text-neutral-700 hover:text-neutral-900"
+                className="text-xs tracking-widest text-muted hover:text-fg transition-colors"
               >
                 {t.toUpperCase()}
               </a>
@@ -25,23 +27,29 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Tools stack pill */}
           <button
-            className="hidden rounded-full border border-neutral-300 bg-white/60 px-5 py-2 text-sm font-semibold text-neutral-800 hover:bg-white md:inline-flex"
+            className="hidden rounded-full border border-border bg-surface/50 px-5 py-2 text-sm font-semibold text-fg hover:bg-surface/70 transition-colors md:inline-flex"
             onClick={() => alert("Hook this to a modal listing your stack.")}
           >
             {rightPillLabel}
           </button>
 
+          {/* Primary CTA */}
           <a
             href="#contact"
-            className="rounded-full bg-rose-300 px-5 py-2 text-sm font-semibold text-white hover:bg-rose-400"
+            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white
+                       hover:brightness-95 active:brightness-90
+                       focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
+                       focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             {rightCTA}
           </a>
 
+          {/* Reset */}
           <button
             onClick={onReset}
-            className="ml-1 rounded-full border border-neutral-200 bg-white/50 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-white"
+            className="ml-1 rounded-full border border-border bg-surface/40 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/70 transition-colors"
             title="Reset visitor choice"
           >
             Reset

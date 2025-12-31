@@ -357,8 +357,8 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         </div>
       </Section>
 
-      <footer className="pt-8 text-sm text-muted">
-        Your Name · AI Engineer and Data Analyst
+      <footer className="pt-8 pb-16 text-sm text-muted">
+        Khushnud Ahmed · AI Engineer and Data Analyst
       </footer>
     </>
   );

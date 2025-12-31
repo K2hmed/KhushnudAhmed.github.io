@@ -34,28 +34,25 @@ export default function App() {
   return (
     <div className="min-h-screen bg-bg text-fg">
       <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(224,122,95,0.16),rgba(246,244,239,0.92)_55%,rgba(58,125,124,0.12))] dark:bg-[radial-gradient(circle_at_top,rgba(240,142,116,0.12),rgba(14,18,22,0.92)_55%,rgba(116,196,192,0.10))]">
-        {/* rest of app */}
-      </div>
-    </div>
-
-      <Gate
-        open={gateOpen}
-        defaultChoice={visitorType ?? "recruiter"}
-        onEnter={enter}
-      />
-
-      <Navbar
-        onReset={resetGate}
-        rightPillLabel="Tools Stack"
-        rightCTA="Let’s connect"
-      />
-
-      <main className="mx-auto max-w-6xl px-6 pb-20 pt-10">
-        <PortfolioView
-          visitorType={visitorType ?? "recruiter"}
-          onSwitch={switchType}
+        <Gate
+          open={gateOpen}
+          defaultChoice={visitorType ?? "recruiter"}
+          onEnter={enter}
         />
-      </main>
+
+        <Navbar
+          onReset={resetGate}
+          rightPillLabel="Tools Stack"
+          rightCTA="Let’s connect"
+        />
+
+        <main className="mx-auto max-w-6xl px-6 pb-20 pt-10">
+          <PortfolioView
+            visitorType={visitorType ?? "recruiter"}
+            onSwitch={switchType}
+          />
+        </main>
+      </div>
     </div>
   );
 }

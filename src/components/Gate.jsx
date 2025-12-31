@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import VisitorToggle from "../components/VisitorToggle";
 
 export default function Gate({ open, defaultChoice = "recruiter", onEnter }) {
   const [choice, setChoice] = useState(defaultChoice);
@@ -37,36 +38,8 @@ export default function Gate({ open, defaultChoice = "recruiter", onEnter }) {
           </div>
 
           {/* Segmented choice */}
-          <div className="mx-auto mt-8 max-w-lg rounded-full border border-border/70 bg-surface/55 p-1 backdrop-blur">
-            <div className="grid grid-cols-2 gap-1">
-              <button
-                type="button"
-                onClick={() => setChoice("recruiter")}
-                className={[
-                  "h-11 rounded-full text-sm font-semibold transition-colors",
-                  choice === "recruiter"
-                    ? "bg-fg text-bg"
-                    : "text-fg hover:bg-surface/70",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                ].join(" ")}
-              >
-                Recruiter
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setChoice("student")}
-                className={[
-                  "h-11 rounded-full text-sm font-semibold transition-colors",
-                  choice === "student"
-                    ? "bg-fg text-bg"
-                    : "text-fg hover:bg-surface/70",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                ].join(" ")}
-              >
-                Student
-              </button>
-            </div>
+          <div className="mx-auto mt-8 max-w-lg">
+            <VisitorToggle value={choice} onChange={setChoice} />
           </div>
 
           {/* CTA */}

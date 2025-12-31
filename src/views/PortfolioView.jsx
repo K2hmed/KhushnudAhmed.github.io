@@ -79,7 +79,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 lg:pt-10">
           {/* WHO'S VISITING CARD */}
           <Card className="p-7">
             <div className="text-xs tracking-widest text-muted">WHO’S VISITING?</div>

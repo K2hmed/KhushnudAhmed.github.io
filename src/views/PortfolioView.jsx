@@ -28,14 +28,14 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       {/* HERO */}
       <section id="home" className="grid gap-8 lg:grid-cols-2">
         <div className="pt-6">
-          <div className="text-xs tracking-[0.22em] text-neutral-700">
+          <div className="text-xs tracking-[0.22em] text-muted">
             AI ENGINEER + DATA ANALYST · HEALTHCARE AI · TORONTO, ON · OPEN TO ROLES
           </div>
-
-          <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-muted">
+          
+          <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-fg">
             YourName builds{" "}
-            <span className="text-rose-300">adaptive</span>{" "}
-            <span className="text-emerald-300">AI systems</span>
+            <span className="text-accent">adaptive</span>{" "}
+            <span className="text-accent2">AI systems</span>
             <br />
             for healthcare,
             <br />
@@ -43,56 +43,65 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <br />
             language intelligence.
           </h1>
-
+          
           <p className="mt-6 max-w-xl text-muted">
             Machine learning, data science, and analytics builder with hands-on
             experience in NLP, RAG, and predictive modeling. Comfortable taking
             models from idea to deployment-ready pipelines.
           </p>
-
-          <p className="mt-6 text-sm font-semibold text-rose-400">
+          
+          <p className="mt-6 text-sm font-semibold text-accent">
             Scholarship / Award line · Hackathon win line
           </p>
-
+          
           <div className="mt-8 flex flex-wrap gap-3">
+            {/* Primary CTA */}
             <a
               href="#projects"
-              className="rounded-full bg-rose-300 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-400"
-            >
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white
+              hover:brightness-95 active:brightness-90
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
+              focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
               View Projects
             </a>
+            
+            {/* Secondary CTAs */}
             <a
               href="#skills"
-              className="rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
-            >
+              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg
+              hover:bg-surface/70 transition-colors"
+              >
               View My Skillset
             </a>
+            
             <a
               href="#contact"
-              className="rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-neutral-800 hover:bg-white"
-            >
+              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg
+              hover:bg-surface/70 transition-colors"
+              >
               Contact Me
             </a>
           </div>
         </div>
-
+        
         <div className="space-y-4">
           {/* WHO'S VISITING CARD */}
           <Card className="p-7">
-            <div className="text-xs tracking-widest text-neutral-600">
+            <div className="text-xs tracking-widest text-muted">
               WHO’S VISITING?
             </div>
-
+            
             <div className="mt-4 flex items-center gap-3">
-              <div className="h-11 w-11 overflow-hidden rounded-full bg-neutral-300" />
+              <div className="h-11 w-11 overflow-hidden rounded-full bg-border" />
               <div>
                 <div className="font-semibold text-fg">Your Name</div>
-                <div className="text-sm text-neutral-600">
+                <div className="text-sm text-muted">
                   AI Engineer · Data Analyst
                 </div>
               </div>
             </div>
-
+            
             <div className="mt-5 rounded-full bg-surface/50 p-1 border border-border/70">
               <div className="grid grid-cols-2 gap-1">
                 <button
@@ -122,25 +131,25 @@ export default function PortfolioView({ visitorType, onSwitch }) {
                 </button>
               </div>
             </div>
-
-            <div className="mt-6 text-xs tracking-widest text-rose-400">
+            
+            <div className="mt-6 text-xs tracking-widest text-accent">
               {visitorCard.label}
             </div>
-
+            
             <div className="mt-2 text-xl font-semibold text-fg">
               {visitorCard.title}
             </div>
-
+            
             <p className="mt-3 text-muted">{visitorCard.body}</p>
-
+            
             <a
               href={visitorCard.ctaHref}
-              className="mt-5 inline-block text-sm font-semibold text-rose-400 hover:text-rose-500"
-            >
+              className="mt-5 inline-block text-sm font-semibold text-accent hover:text-accent2 transition-colors"
+              >
               {visitorCard.ctaText}
             </a>
           </Card>
-
+          
           {/* STATS (same for both, like your screenshots) */}
           <Card className="grid grid-cols-3 gap-6 bg-surface/60 p-7">
             <Stat value="7,900+" label="Healthcare records modeled" />

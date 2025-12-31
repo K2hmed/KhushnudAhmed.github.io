@@ -6,7 +6,7 @@ export default function Card({ className = "", children }) {
       className={[
         // Base surface
         "rounded-2xl",
-        "bg-white/85 dark:bg-slate-900/75",
+        "bg-[#f9fafb]/88 dark:bg-slate-900/75",
 
         // Borders
         "border border-slate-200/60 dark:border-slate-700/55",

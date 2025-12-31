@@ -4,7 +4,8 @@ export default function Card({ className = "", children }) {
   return (
     <div
       className={[
-        "rounded-[26px] bg-white/55 p-6 shadow-soft backdrop-blur",
+        "rounded-xl2 border border-border/70 bg-surface/65 shadow-soft backdrop-blur",
+        "dark:bg-surface/70 dark:border-border/70",
         className,
       ].join(" ")}
     >

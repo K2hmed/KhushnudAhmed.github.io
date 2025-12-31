@@ -46,7 +46,7 @@ export default function App() {
           rightCTA="Let’s connect"
         />
 
-        <main className="mx-auto w-full max-w-[85rem] px-6 lg:px-8 pt-24 pb-16 min-h-screen"">
+        <main className="mx-auto w-full max-w-[85rem] px-6 lg:px-8 pt-24 pb-16 min-h-screen">
           <PortfolioView
             visitorType={visitorType ?? "recruiter"}
             onSwitch={switchType}

@@ -31,10 +31,9 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           <div className="text-xs tracking-[0.22em] text-muted">
             AI ENGINEER + DATA ANALYST · HEALTHCARE AI · TORONTO, ON · OPEN TO ROLES
           </div>
-          
+
           <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-fg">
-            YourName builds{" "}
-            <span className="text-accent">adaptive</span>{" "}
+            YourName builds <span className="text-accent">adaptive</span>{" "}
             <span className="text-accent2">AI systems</span>
             <br />
             for healthcare,
@@ -43,114 +42,101 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <br />
             language intelligence.
           </h1>
-          
+
           <p className="mt-6 max-w-xl text-muted">
             Machine learning, data science, and analytics builder with hands-on
             experience in NLP, RAG, and predictive modeling. Comfortable taking
             models from idea to deployment-ready pipelines.
           </p>
-          
+
           <p className="mt-6 text-sm font-semibold text-accent">
             Scholarship / Award line · Hackathon win line
           </p>
-          
+
           <div className="mt-8 flex flex-wrap gap-3">
             {/* Primary CTA */}
             <a
               href="#projects"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white
-              hover:brightness-95 active:brightness-90
-              focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
-              focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-              >
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            >
               View Projects
             </a>
-            
+
             {/* Secondary CTAs */}
             <a
               href="#skills"
-              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg
-              hover:bg-surface/70 transition-colors"
-              >
+              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg hover:bg-surface/70 transition-colors"
+            >
               View My Skillset
             </a>
-            
+
             <a
               href="#contact"
-              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg
-              hover:bg-surface/70 transition-colors"
-              >
+              className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg hover:bg-surface/70 transition-colors"
+            >
               Contact Me
             </a>
           </div>
         </div>
-        
+
         <div className="space-y-4">
           {/* WHO'S VISITING CARD */}
           <Card className="p-7">
-            <div className="text-xs tracking-widest text-muted">
-              WHO’S VISITING?
-            </div>
-            
+            <div className="text-xs tracking-widest text-muted">WHO’S VISITING?</div>
+
             <div className="mt-4 flex items-center gap-3">
               <div className="h-11 w-11 overflow-hidden rounded-full bg-border" />
               <div>
                 <div className="font-semibold text-fg">Your Name</div>
-                <div className="text-sm text-muted">
-                  AI Engineer · Data Analyst
-                </div>
+                <div className="text-sm text-muted">AI Engineer · Data Analyst</div>
               </div>
             </div>
-            
-            <div className="mt-5 rounded-full bg-surface/50 p-1 border border-border/70">
+
+            <div className="mt-5 rounded-full border border-border/70 bg-surface/50 p-1">
               <div className="grid grid-cols-2 gap-1">
                 <button
                   onClick={() => onSwitch("recruiter")}
                   className={[
                     "h-10 rounded-full text-sm font-semibold transition-colors",
-                    !isStudent
-                    ? "bg-fg text-bg"
-                    : "text-fg hover:bg-surface/70",
+                    !isStudent ? "bg-fg text-bg" : "text-fg hover:bg-surface/70",
                     "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
                   ].join(" ")}
-                  >
+                >
                   Recruiter
                 </button>
-                
+
                 <button
                   onClick={() => onSwitch("student")}
                   className={[
                     "h-10 rounded-full text-sm font-semibold transition-colors",
-                    isStudent
-                    ? "bg-fg text-bg"
-                    : "text-fg hover:bg-surface/70",
+                    isStudent ? "bg-fg text-bg" : "text-fg hover:bg-surface/70",
                     "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
                   ].join(" ")}
-                  >
+                >
                   Student
                 </button>
               </div>
             </div>
-            
+
             <div className="mt-6 text-xs tracking-widest text-accent">
               {visitorCard.label}
             </div>
-            
+
             <div className="mt-2 text-xl font-semibold text-fg">
               {visitorCard.title}
             </div>
-            
+
             <p className="mt-3 text-muted">{visitorCard.body}</p>
-            
+
             <a
               href={visitorCard.ctaHref}
               className="mt-5 inline-block text-sm font-semibold text-accent hover:text-accent2 transition-colors"
-              >
+            >
               {visitorCard.ctaText}
             </a>
           </Card>
-          
-          {/* STATS (same for both, like your screenshots) */}
+
+          {/* STATS */}
           <Card className="grid grid-cols-3 gap-6 bg-surface/60 p-7">
             <Stat value="7,900+" label="Healthcare records modeled" />
             <Stat value="95%" label="Epilepsy prediction accuracy" />
@@ -163,19 +149,19 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       <div className="mt-10 rounded-[28px] bg-surface/60 px-7 py-6 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
         <div className="space-y-5">
           <div>
-            <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">
+            <div className="text-[11px] font-semibold tracking-[0.22em] text-muted">
               CURRENTLY WORKING ON
             </div>
-            <div className="mt-2 text-[15px] leading-relaxed text-neutral-800">
+            <div className="mt-2 text-[15px] leading-relaxed text-fg">
               Research Assistant: AI chatbot qualitative study
             </div>
           </div>
-          
+
           <div>
-            <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">
+            <div className="text-[11px] font-semibold tracking-[0.22em] text-muted">
               OPEN TO
             </div>
-            <div className="mt-2 text-[15px] leading-relaxed text-neutral-800">
+            <div className="mt-2 text-[15px] leading-relaxed text-fg">
               Full-time or contract opportunities
             </div>
           </div>
@@ -342,11 +328,11 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         title="Let’s connect"
         subtitle="Open to AI Engineer, ML Engineer, and data analyst roles. Available for tutoring support on ML projects."
       >
-        <div className="rounded-[28px] bg-neutral-900/80 p-8 text-white shadow-soft">
+        <div className="rounded-[28px] border border-border/70 bg-surface2/70 p-8 text-fg shadow-soft backdrop-blur">
           <div className="grid gap-8 lg:grid-cols-2">
             <div>
               <div className="text-xl font-semibold">Contact</div>
-              <div className="mt-4 space-y-3 text-white/80">
+              <div className="mt-4 space-y-3 text-muted">
                 <div>Email: your.email@gmail.com</div>
                 <div>Phone: +1 XXX XXX XXXX</div>
                 <div>LinkedIn: linkedin.com/in/yourhandle</div>
@@ -357,13 +343,14 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:your.email@gmail.com"
-                className="h-12 rounded-full bg-amber-200/90 text-center text-sm font-semibold text-fg leading-[3rem] hover:bg-amber-200"
+                className="h-12 rounded-full bg-accent text-center text-sm font-semibold text-white leading-[3rem] hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 Email me
               </a>
+
               <a
                 href="https://linkedin.com"
-                className="h-12 rounded-full bg-white/10 text-center text-sm font-semibold text-white leading-[3rem] hover:bg-white/15"
+                className="h-12 rounded-full border border-border bg-surface/40 text-center text-sm font-semibold text-fg leading-[3rem] hover:bg-surface/70 transition-colors"
               >
                 Connect on LinkedIn
               </a>
@@ -372,7 +359,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         </div>
       </Section>
 
-      <footer className="pt-8 text-sm text-neutral-600">
+      <footer className="pt-8 text-sm text-muted">
         Your Name · AI Engineer and Data Analyst
       </footer>
     </>
@@ -397,7 +384,7 @@ function ProjectCard({ title }) {
         <p className="mt-2 text-muted">
           Replace this with your 1–2 line impact statement.
         </p>
-        <button className="mt-4 text-sm font-semibold text-neutral-600 hover:text-fg">
+        <button className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors">
           SHOW MORE
         </button>
       </div>
@@ -413,7 +400,7 @@ function Role({ title, org, dates, bullets }) {
           <div className="text-xl font-semibold text-fg">{title}</div>
           <div className="text-muted">{org}</div>
         </div>
-        <div className="text-sm text-neutral-600">{dates}</div>
+        <div className="text-sm text-muted">{dates}</div>
       </div>
       <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
         {bullets.map((b) => (
@@ -450,7 +437,7 @@ function EduCard({ title, org, meta }) {
 function QuoteCard({ quote, who }) {
   return (
     <Card>
-      <div className="text-neutral-800">“{quote}”</div>
+      <div className="text-fg">“{quote}”</div>
       <div className="mt-6 text-sm font-semibold text-muted">— {who}</div>
     </Card>
   );

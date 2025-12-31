@@ -18,7 +18,6 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
                 href={`#${t.toLowerCase()}`}
                 className="
                 relative text-sm font-semibold tracking-wide
-                text-center
                 text-muted hover:text-fg
                 transition-colors
                 after:absolute after:left-0 after:-bottom-1
@@ -27,10 +26,10 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
                 after:transition-all after:duration-200
                 hover:after:w-full
                 "
-              >
+                >
                 {t.toUpperCase()}
               </a>
-            ))}
+          ))}
           </nav>
         </div>
 

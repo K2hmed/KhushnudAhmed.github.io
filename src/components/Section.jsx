@@ -4,10 +4,12 @@ export default function Section({ id, title, subtitle, children }) {
   return (
     <section
       id={id}
-      className="scroll-mt-28 py-10 sm:py-12"
+      // Match sticky navbar height so the section top sits "under" the navbar,
+      // not leaving room to show the previous section.
+      className="scroll-mt-28 py-10 lg:py-12"
     >
-      {/* subtle separator with tighter spacing */}
-      <div className="mb-8 border-t border-border/60 pt-8" />
+      {/* subtle separator + tighter spacing */}
+      <div className="mb-8 border-t border-border/50 pt-8" />
 
       <h2 className="font-display text-5xl font-semibold text-fg">{title}</h2>
 

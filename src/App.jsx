@@ -32,32 +32,32 @@ export default function App() {
   }
 
   return (
-    //<div className="min-h-screen bg-bg text-fg">
-    <div className="min-h-screen 
-      bg-[radial-gradient(1200px_circle_at_50%_0%,rgba(198,208,220,0.55),transparent_65%),
-      linear-gradient(to_bottom,#F7F8FA,#F4F3EF,#E9ECEF)]
-      dark:bg-[radial-gradient(1200px_circle_at_50%_0%,rgba(140,160,180,0.12),transparent_65%),
-      linear-gradient(to_bottom,#0E1318,#0B1014,#0A0F13)]"
-      >
-      <Gate
-        open={gateOpen}
-        defaultChoice={visitorType ?? "recruiter"}
-        onEnter={enter}
-      />
-
-      <Navbar
-        onReset={resetGate}
-        rightPillLabel="Tools Stack"
-        rightCTA="Let’s connect"
-      />
-
-      <main className="mx-auto w-full max-w-[85rem] px-6 lg:px-8 pt-20">
-        <PortfolioView
-          visitorType={visitorType ?? "recruiter"}
-          onSwitch={switchType}
-        />
-      </main>
+    <div className="min-h-screen bg-bg text-fg">
+      <div className="min-h-screen 
+        bg-[radial-gradient(1100px_circle_at_50%_0%,rgba(200,212,225,0.55),transparent_65%),
+        linear-gradient(to_bottom,#F4F6F8,#F1F3F5,#ECEFF2)]
+        dark:bg-[radial-gradient(1100px_circle_at_50%_0%,rgba(120,135,150,0.14),transparent_65%),
+        linear-gradient(to_bottom,#0E1318,#0C1116,#0A0F14)]">
+        
+        <Gate
+          open={gateOpen}
+          defaultChoice={visitorType ?? "recruiter"}
+          onEnter={enter}
+          />
+        
+        <Navbar
+          onReset={resetGate}
+          rightPillLabel="Tools Stack"
+          rightCTA="Let’s connect"
+          />
+        
+        <main className="mx-auto w-full max-w-[85rem] px-6 lg:px-8 pt-20">
+          <PortfolioView
+            visitorType={visitorType ?? "recruiter"}
+            onSwitch={switchType}
+            />
+        </main>
+      </div>
     </div>
-    //</div>
   );
 }

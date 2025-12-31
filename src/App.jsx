@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg text-fg">
-      <div className="min-h-screen bg-[radial-gradient(900px_circle_at_12%_8%,rgba(224,122,95,0.16),transparent_55%),radial-gradient(800px_circle_at_88%_22%,rgba(58,125,124,0.14),transparent_52%),linear-gradient(to_bottom,rgba(246,244,239,0.96),rgba(246,244,239,0.92))] dark:bg-[radial-gradient(900px_circle_at_12%_8%,rgba(224,122,95,0.10),transparent_55%),radial-gradient(800px_circle_at_88%_22%,rgba(58,125,124,0.10),transparent_52%),linear-gradient(to_bottom,rgba(12,16,20,0.94),rgba(12,16,20,0.98))]">
+      <div className="min-h-screen bg-[radial-gradient(1100px_circle_at_50%_0%,rgba(217,210,198,0.55),transparent_65%),linear-gradient(to_bottom,#F5F3EE,#F2F1EC,#EEF0EC)] dark:bg-[radial-gradient(1100px_circle_at_50%_0%,rgba(120,120,120,0.10),transparent_65%),linear-gradient(to_bottom,#0F1418,#0C1115,#0A0F13)]">
         <Gate
           open={gateOpen}
           defaultChoice={visitorType ?? "recruiter"}

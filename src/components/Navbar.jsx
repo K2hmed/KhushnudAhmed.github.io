@@ -56,7 +56,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
                 <a
                   key={t}
                   href={`#${t.toLowerCase()}`}
-                  className="text-sm font-semibold tracking-[0.14em] text-muted hover:text-fg transition-colors"
+                  className="text-sm font-semibold tracking-[0.14em] text-muted hover:text-accent hover:font-bold hover:scale-105 transition-all duration-200"
                 >
                   {t.toUpperCase()}
                 </a>

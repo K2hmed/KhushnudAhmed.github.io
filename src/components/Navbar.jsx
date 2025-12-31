@@ -5,7 +5,7 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/70 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex w-full max-w-[85rem] items-center justify-between px-6 py-4 lg:px-8">
         <div className="flex items-center gap-4">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">
             KA

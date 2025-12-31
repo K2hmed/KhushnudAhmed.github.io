@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg text-fg">
-      <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(95,168,211,0.15),rgba(202,233,255,0.85)_55%,rgba(27,73,101,0.1)_95%)] dark:bg-[radial-gradient(circle_at_top,rgba(95,168,211,0.05),rgba(202,233,255,0.3)_50%,rgba(27,73,101,0.85)_90%)]">
+      <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(95,168,211,0.15),rgba(202,233,255,0.85)_55%,rgba(27,73,101,0.25)_95%)] dark:bg-[radial-gradient(circle_at_top,rgba(95,168,211,0.05),rgba(202,233,255,0.3)_50%,rgba(27,73,101,0.85)_90%)]">
         
         <Gate
           open={gateOpen}

@@ -378,27 +378,18 @@ function Stat({ value, label }) {
  */
 function ProjectCard({ title }) {
   return (
-    <Card className="relative group p-0 overflow-hidden transition-transform duration-200 hover:-translate-y-1">
-      {/* cover */}
-      <div className="h-44 bg-surface2/70 border-b border-border/60" />
-
+    <Card className="p-0 overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(0,0,0,0.14)]">
+      <div className="h-44 bg-surface/60" />
       <div className="p-6">
         <div className="text-lg font-semibold text-fg">{title}</div>
         <p className="mt-2 text-muted">
           Replace this with your 1–2 line impact statement.
         </p>
 
-        <button
-          className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
-                     focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-        >
+        <button className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
           SHOW MORE
         </button>
       </div>
-
-      {/* subtle hover outline */}
-      <div className="pointer-events-none absolute inset-0 rounded-xl2 ring-1 ring-transparent group-hover:ring-border/70 transition" />
     </Card>
   );
 }

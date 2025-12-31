@@ -7,12 +7,10 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-4">
-          {/* Logo */}
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">
             KA
           </div>
 
-          {/* Nav links */}
           <nav className="hidden items-center gap-6 md:flex">
             {links.map((t) => (
               <a
@@ -27,7 +25,6 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* Tools stack pill */}
           <button
             className="hidden rounded-full border border-border bg-surface/50 px-5 py-2 text-sm font-semibold text-fg hover:bg-surface/70 transition-colors md:inline-flex"
             onClick={() => alert("Hook this to a modal listing your stack.")}
@@ -35,7 +32,6 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
             {rightPillLabel}
           </button>
 
-          {/* Primary CTA */}
           <a
             href="#contact"
             className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white
@@ -46,7 +42,18 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
             {rightCTA}
           </a>
 
-          {/* Reset */}
+          {/* Dark mode toggle */}
+          <button
+            className="rounded-full border border-border bg-surface/40 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/70 transition-colors"
+            onClick={() => {
+              document.documentElement.classList.toggle("dark");
+              localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+            }}
+            title="Toggle dark mode"
+          >
+            Dark
+          </button>
+
           <button
             onClick={onReset}
             className="ml-1 rounded-full border border-border bg-surface/40 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/70 transition-colors"

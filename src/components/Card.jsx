@@ -4,20 +4,13 @@ export default function Card({ className = "", children }) {
   return (
     <div
       className={[
-        // Base surface
-        "rounded-2xl",
-        "bg-white/85 dark:bg-slate-900/75",
-
-        // Borders
-        "border border-slate-200/60 dark:border-slate-700/55",
-
-        // Depth
-        "shadow-[0_12px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.45)]",
-
-        // Subtle polish
+        "relative overflow-hidden rounded-2xl",
+        "border border-border/60 dark:border-border/55",
+        "bg-surface/88 dark:bg-surface/72",
         "backdrop-blur-sm",
-
-        className,
+        "shadow-[0_12px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_18px_44px_rgba(0,0,0,0.55)]",
+        "p-6", // default padding so content never looks outside
+        className, // allow overrides like p-7, p-8, etc.
       ].join(" ")}
     >
       {children}

@@ -2,14 +2,12 @@ import React from "react";
 
 export default function Section({ id, title, subtitle, children }) {
   return (
-    <section
-      id={id}
-      // Match sticky navbar height so the section top sits "under" the navbar,
-      // not leaving room to show the previous section.
-      className="scroll-mt-28 py-10 lg:py-12"
-    >
-      {/* subtle separator + tighter spacing */}
-      <div className="mb-8 border-t border-border/50 pt-8" />
+    <section className="py-10 lg:py-12">
+      {/* Subtle separator with tighter spacing */}
+      <div className="mb-7 border-t border-border/50" />
+
+      {/* Anchor is placed AFTER the separator so you never land "between" sections */}
+      <div id={id} className="scroll-mt-[85rem]" />
 
       <h2 className="font-display text-5xl font-semibold text-fg">{title}</h2>
 

@@ -149,7 +149,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       </section>
 
       {/* TOP STRIP */}
-      <div className="mt-10 rounded-[28px] bg-white/60 px-7 py-6 shadow-soft backdrop-blur">
+      <div className="mt-10 rounded-[28px] bg-white/60 px-7 py-6 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
         <div className="space-y-5">
           <div>
             <div className="text-[11px] font-semibold tracking-[0.22em] text-neutral-600">

@@ -4,7 +4,7 @@ export default function Navbar({ onReset, rightPillLabel, rightCTA }) {
   const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/70 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-white/75 backdrop-blur-md border-b border-slate-200/70 dark:bg-slate-900/70 dark:border-slate-700/60">
       <div className="mx-auto flex w-full max-w-[85rem] items-center justify-between px-6 py-4 lg:px-8">
         <div className="flex items-center gap-4">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">

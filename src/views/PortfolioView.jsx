@@ -2,6 +2,7 @@ import React from "react";
 import Section from "../components/Section.jsx";
 import Card from "../components/Card.jsx";
 import VisitorToggle from "../components/VisitorToggle";
+import Reveal from "../components/Reveal.jsx";
 
 export default function PortfolioView({ visitorType, onSwitch }) {
   const isStudent = visitorType === "student";
@@ -34,16 +35,15 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </div>
 
           <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-fg">
-            YourName builds {" "}
+            Khushnud builds{" "}
             <span
-            className="gradient-text-pan font-semibold"
-            style={{
-              backgroundImage:
-              "linear-gradient(90deg, #E07A5F, #D6B77C, #E07A5F)",
+              className="gradient-text-pan font-semibold"
+              style={{
+                backgroundImage: "linear-gradient(90deg, #E07A5F, #D6B77C, #E07A5F)",
               }}
-              >
+            >
               adaptive AI systems
-              </span>{" "}
+            </span>{" "}
             <br />
             for healthcare,
             <br />
@@ -96,7 +96,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <div className="mt-4 flex items-center gap-3">
               <div className="h-11 w-11 overflow-hidden rounded-full bg-border" />
               <div>
-                <div className="font-semibold text-fg">Your Name</div>
+                <div className="font-semibold text-fg">Khushnud Ahmed</div>
                 <div className="text-sm text-muted">AI Engineer · Data Analyst</div>
               </div>
             </div>
@@ -160,16 +160,22 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         subtitle="Applied AI and analytics work across healthcare, NLP, and scalable data systems."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <ProjectCard title="Healthcare AI: Epilepsy Seizure Prediction" />
-          <ProjectCard title="Stroke Risk Prediction on AWS" />
-          <ProjectCard title="Alzheimer’s Stage Classification" />
-          <ProjectCard title="RAG Scientific QA Assistant" />
-          <ProjectCard title="Energy Analytics Pipeline" />
-          <ProjectCard title="Sales & Profit Forecasting" />
-          <ProjectCard title="Generative Design Prototyping" />
-          <ProjectCard title="Entropy Biomarkers in Cancer" />
-          <ProjectCard title="Document & Knowledge AI" />
-          <ProjectCard title="Global Disease Burden Analyzer" />
+          {[
+            "Healthcare AI: Epilepsy Seizure Prediction",
+            "Stroke Risk Prediction on AWS",
+            "Alzheimer’s Stage Classification",
+            "RAG Scientific QA Assistant",
+            "Energy Analytics Pipeline",
+            "Sales & Profit Forecasting",
+            "Generative Design Prototyping",
+            "Entropy Biomarkers in Cancer",
+            "Document & Knowledge AI",
+            "Global Disease Burden Analyzer",
+          ].map((title, i) => (
+            <Reveal key={title} delay={i * 45} y={12}>
+              <ProjectCard title={title} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -180,43 +186,49 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         subtitle="Highlights from AI engineering, research, and applied ML delivery."
       >
         <div className="space-y-5">
-          <Role
-            title="Graduate Researcher / AI Engineer (Healthcare)"
-            org="Toronto Metropolitan University"
-            dates="Sep 2024 – Aug 2025"
-            bullets={[
-              "Built end-to-end AI pipelines on 7,900+ patient records, blending structured and unstructured clinical data.",
-              "Developed predictive and survival models with robust validation, interpretability, and reliability focus.",
-              "Designed production-grade Python workflows for ingestion, feature engineering, training, and evaluation.",
-            ]}
-          />
-          <Role
-            title="Machine Learning Engineer"
-            org="Company (Remote)"
-            dates="Jan 2024 – May 2024"
-            bullets={[
-              "Delivered production-style generative AI pipelines to accelerate content creation by ~40%.",
-              "Built inference and evaluation workflows that bridged experimentation to deployment-ready systems.",
-            ]}
-          />
-          <Role
-            title="Graduate Assistant (Technical Systems Support)"
-            org="Toronto Metropolitan University"
-            dates="Jan 2025 – Aug 2025"
-            bullets={[
-              "Supported ML pipeline debugging, validation, and failure analysis under time constraints.",
-              "Provided technical support for student labs and system-level troubleshooting.",
-            ]}
-          />
-          <Role
-            title="Quality Engineering & Assurance Intern"
-            org="Cognizant"
-            dates="Feb 2023 – Jul 2023"
-            bullets={[
-              "Automated QA testing with Selenium-Java, reducing manual effort and improving site performance.",
-              "Collaborated with cross-functional teams to improve test coverage and defect detection.",
-            ]}
-          />
+          {[
+            {
+              title: "Graduate Researcher / AI Engineer (Healthcare)",
+              org: "Toronto Metropolitan University",
+              dates: "Sep 2024 – Aug 2025",
+              bullets: [
+                "Built end-to-end AI pipelines on 7,900+ patient records, blending structured and unstructured clinical data.",
+                "Developed predictive and survival models with robust validation, interpretability, and reliability focus.",
+                "Designed production-grade Python workflows for ingestion, feature engineering, training, and evaluation.",
+              ],
+            },
+            {
+              title: "Machine Learning Engineer",
+              org: "Company (Remote)",
+              dates: "Jan 2024 – May 2024",
+              bullets: [
+                "Delivered production-style generative AI pipelines to accelerate content creation by ~40%.",
+                "Built inference and evaluation workflows that bridged experimentation to deployment-ready systems.",
+              ],
+            },
+            {
+              title: "Graduate Assistant (Technical Systems Support)",
+              org: "Toronto Metropolitan University",
+              dates: "Jan 2025 – Aug 2025",
+              bullets: [
+                "Supported ML pipeline debugging, validation, and failure analysis under time constraints.",
+                "Provided technical support for student labs and system-level troubleshooting.",
+              ],
+            },
+            {
+              title: "Quality Engineering & Assurance Intern",
+              org: "Cognizant",
+              dates: "Feb 2023 – Jul 2023",
+              bullets: [
+                "Automated QA testing with Selenium-Java, reducing manual effort and improving site performance.",
+                "Collaborated with cross-functional teams to improve test coverage and defect detection.",
+              ],
+            },
+          ].map((r, i) => (
+            <Reveal key={r.title} delay={i * 80} y={14}>
+              <Role title={r.title} org={r.org} dates={r.dates} bullets={r.bullets} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -227,36 +239,42 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         subtitle="Tools and workflows for production-minded AI delivery."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          <SkillCard
-            title="Applied AI"
-            items={[
-              "Document Understanding",
-              "NLP + Entity Extraction",
-              "RAG + LLM Workflows",
-              "Predictive Modeling",
-              "Model Validation",
-            ]}
-          />
-          <SkillCard
-            title="Engineering & MLOps"
-            items={[
-              "Python",
-              "REST Inference Pipelines",
-              "Model Deployment",
-              "Monitoring + Iteration",
-              "Git + CI/CD Concepts",
-            ]}
-          />
-          <SkillCard
-            title="Data & Cloud"
-            items={[
-              "AWS (EC2, S3, SageMaker)",
-              "Azure (OpenAI, Notebooks)",
-              "GCP",
-              "ETL + Data Validation",
-              "SQL + PySpark",
-            ]}
-          />
+          {[
+            {
+              title: "Applied AI",
+              items: [
+                "Document Understanding",
+                "NLP + Entity Extraction",
+                "RAG + LLM Workflows",
+                "Predictive Modeling",
+                "Model Validation",
+              ],
+            },
+            {
+              title: "Engineering & MLOps",
+              items: [
+                "Python",
+                "REST Inference Pipelines",
+                "Model Deployment",
+                "Monitoring + Iteration",
+                "Git + CI/CD Concepts",
+              ],
+            },
+            {
+              title: "Data & Cloud",
+              items: [
+                "AWS (EC2, S3, SageMaker)",
+                "Azure (OpenAI, Notebooks)",
+                "GCP",
+                "ETL + Data Validation",
+                "SQL + PySpark",
+              ],
+            },
+          ].map((s, i) => (
+            <Reveal key={s.title} delay={i * 70} y={12}>
+              <SkillCard title={s.title} items={s.items} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -267,21 +285,27 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         subtitle="Academic foundations and recognitions."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          <EduCard
-            title="MSc, Data Science & Analytics"
-            org="Toronto Metropolitan University"
-            meta="Vector Scholarship in AI · Hack the World Hackathon Winner · GPA: X/4.33"
-          />
-          <EduCard
-            title="Graduate Certificate, AI & Machine Learning"
-            org="Humber College"
-            meta="Dean’s Honour List · Grade: 92.5%"
-          />
-          <EduCard
-            title="BTech, Computer Science & Engineering"
-            org="Your University"
-            meta="CGPA: 9.2/10"
-          />
+          {[
+            {
+              title: "MSc, Data Science & Analytics",
+              org: "Toronto Metropolitan University",
+              meta: "Vector Scholarship in AI · Hack the World Hackathon Winner · GPA: X/4.33",
+            },
+            {
+              title: "Graduate Certificate, AI & Machine Learning",
+              org: "Humber College",
+              meta: "Dean’s Honour List · Grade: 92.5%",
+            },
+            {
+              title: "BTech, Computer Science & Engineering",
+              org: "Your University",
+              meta: "CGPA: 9.2/10",
+            },
+          ].map((e, i) => (
+            <Reveal key={e.title} delay={i * 70} y={12}>
+              <EduCard title={e.title} org={e.org} meta={e.meta} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -292,18 +316,26 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         subtitle="Feedback from teaching and mentoring moments."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          <QuoteCard
-            quote="Explained core Java concepts with patience and clarity. Students left labs confident and prepared."
-            who="Professor, Software Engineering"
-          />
-          <QuoteCard
-            quote="Broke down SQL queries step-by-step and helped me build a working analytics project quickly."
-            who="Student, Data Analytics"
-          />
-          <QuoteCard
-            quote="Practical and encouraging support on coursework. An excellent mentor."
-            who="Student, Computer Science"
-          />
+          {[
+            {
+              quote:
+                "Explained core Java concepts with patience and clarity. Students left labs confident and prepared.",
+              who: "Professor, Software Engineering",
+            },
+            {
+              quote:
+                "Broke down SQL queries step-by-step and helped me build a working analytics project quickly.",
+              who: "Student, Data Analytics",
+            },
+            {
+              quote: "Practical and encouraging support on coursework. An excellent mentor.",
+              who: "Student, Computer Science",
+            },
+          ].map((q, i) => (
+            <Reveal key={q.who} delay={i * 70} y={12}>
+              <QuoteCard quote={q.quote} who={q.who} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -318,23 +350,23 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             <div>
               <div className="text-xl font-semibold">Contact</div>
               <div className="mt-4 space-y-3 text-muted">
-                <div>Email: your.email@gmail.com</div>
-                <div>Phone: +1 XXX XXX XXXX</div>
-                <div>LinkedIn: linkedin.com/in/yourhandle</div>
-                <div>GitHub: github.com/yourhandle</div>
+                <div>Email: ahmed.khushnood8@gmail.com</div>
+                <div>Phone: +1 437-217-6349</div>
+                <div>LinkedIn: linkedin.com/in/khushnud-ahmed</div>
+                <div>GitHub: github.com/K2hmed</div>
               </div>
             </div>
 
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:your.email@gmail.com"
+                href="mailto:ahmed.khushnood8@gmail.com"
                 className="h-12 rounded-full bg-accent text-center text-sm font-semibold text-white leading-[3rem] hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 Email me
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/khushnud-ahmed"
                 className="h-12 rounded-full border border-border bg-surface/40 text-center text-sm font-semibold text-fg leading-[3rem] hover:bg-surface/70 transition-colors"
               >
                 Connect on LinkedIn
@@ -365,15 +397,22 @@ function Stat({ value, label }) {
  */
 function ProjectCard({ title }) {
   return (
-    <Card className="p-0 overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(0,0,0,0.14)]">
+    <Card className="flex h-full flex-col overflow-hidden p-0 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(0,0,0,0.14)]">
+      {/* image / cover */}
       <div className="h-44 bg-surface/60" />
-      <div className="p-6">
-        <div className="text-lg font-semibold text-fg">{title}</div>
+
+      {/* content */}
+      <div className="flex flex-1 flex-col p-6">
+        <div className="text-lg font-semibold text-fg">
+          {title}
+        </div>
+
         <p className="mt-2 text-muted">
           Replace this with your 1–2 line impact statement.
         </p>
 
-        <button className="mt-4 text-sm font-semibold text-muted hover:text-fg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
+        {/* pushes CTA to the bottom so all cards match */}
+        <button className="mt-auto pt-4 text-sm font-semibold text-muted hover:text-fg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
           SHOW MORE
         </button>
       </div>

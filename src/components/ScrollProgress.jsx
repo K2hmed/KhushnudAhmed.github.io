@@ -47,6 +47,7 @@ export default function ScrollProgress() {
       className={`fixed top-0 left-0 z-[60] w-full transition-all duration-200`}
       style={{
         height: isScrolling ? "6px" : "4px", // grows only while scrolling
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       {/* Track */}

@@ -3,6 +3,8 @@ import Section from "../components/Section.jsx";
 import Card from "../components/Card.jsx";
 import VisitorToggle from "../components/VisitorToggle";
 import Reveal from "../components/Reveal.jsx";
+import ProjectCard from "../components/ProjectCard.jsx";
+import Magnetic from "../components/Magnetic.jsx";
 
 export default function PortfolioView({ visitorType, onSwitch }) {
   const isStudent = visitorType === "student";
@@ -35,8 +37,10 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </div>
 
           {/* Mobile-first type scale */}
-          <h1 className="mt-5 sm:mt-6 font-display font-semibold text-fg leading-[0.98]
-                         text-[44px] sm:text-6xl lg:text-6xl">
+          <h1
+            className="mt-5 sm:mt-6 font-display font-semibold text-fg leading-[0.98]
+                       text-[44px] sm:text-6xl lg:text-6xl"
+          >
             Khushnud builds{" "}
             <span
               className="gradient-text-pan font-semibold"
@@ -65,12 +69,14 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </p>
 
           <div className="mt-7 sm:mt-8 flex flex-wrap gap-3">
+            <Magnetic strength={20} className="inline-flex">
             <a
               href="#projects"
               className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               View Projects
             </a>
+            </Magnetic>
 
             <a
               href="#skills"
@@ -161,19 +167,20 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            "Healthcare AI: Epilepsy Seizure Prediction",
-            "Stroke Risk Prediction on AWS",
-            "Alzheimer’s Stage Classification",
-            "RAG Scientific QA Assistant",
-            "Energy Analytics Pipeline",
-            "Sales & Profit Forecasting",
-            "Generative Design Prototyping",
-            "Entropy Biomarkers in Cancer",
-            "Document & Knowledge AI",
-            "Global Disease Burden Analyzer",
-          ].map((title, i) => (
-            <Reveal key={title} delay={i * 45} y={12}>
-              <ProjectCard title={title} />
+            { title: "Healthcare AI: Epilepsy Seizure Prediction" },
+            { title: "Stroke Risk Prediction on AWS" },
+            { title: "Alzheimer’s Stage Classification" },
+            { title: "RAG Scientific QA Assistant" },
+            { title: "Energy Analytics Pipeline" },
+            { title: "Sales & Profit Forecasting" },
+            { title: "Generative Design Prototyping" },
+            { title: "Entropy Biomarkers in Cancer" },
+            { title: "Document & Knowledge AI" },
+            { title: "Global Disease Burden Analyzer" },
+          ].map((p, i) => (
+            <Reveal key={p.title} delay={i * 45} y={12}>
+              {/* ✅ Correct prop shape: ProjectCard expects { project } */}
+              <ProjectCard project={p} />
             </Reveal>
           ))}
         </div>
@@ -389,21 +396,6 @@ function Stat({ value, label }) {
       <div className="text-3xl font-semibold text-fg">{value}</div>
       <div className="mt-2 text-sm text-muted">{label}</div>
     </div>
-  );
-}
-
-function ProjectCard({ title }) {
-  return (
-    <Card className="flex h-full flex-col overflow-hidden p-0 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(0,0,0,0.14)]">
-      <div className="h-44 bg-surface/60" />
-      <div className="flex flex-1 flex-col p-6">
-        <div className="text-lg font-semibold text-fg">{title}</div>
-        <p className="mt-2 text-muted">Replace this with your 1–2 line impact statement.</p>
-        <button className="mt-auto pt-4 text-sm font-semibold text-muted hover:text-fg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
-          SHOW MORE
-        </button>
-      </div>
-    </Card>
   );
 }
 

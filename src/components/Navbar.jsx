@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import Magnetic from "../components/Magnetic.jsx";
 
 export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightCTA = "Let’s connect" }) {
   const links = ["Home", "Projects", "Experience", "Skills", "Education", "Contact"];
@@ -22,6 +23,11 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
     if (/(bayes|stats|math|analysis)/.test(key)) return "bg-violet-500/65 dark:bg-violet-400/75";
     if (/(pytorch|tensorflow|langchain|nlp|ml|ai)/.test(key)) return "bg-amber-500/65 dark:bg-amber-400/75";
     return "bg-slate-500/60 dark:bg-slate-400/70";
+  }
+
+  function toggleDark() {
+    document.documentElement.classList.toggle("dark");
+    localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
   }
 
   // Close on ESC + lock scroll
@@ -89,7 +95,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
           </div>
 
           {/* Right: Desktop buttons */}
-          <div className="flex items-center gap-3 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               className="hidden rounded-full border border-border bg-surface/55 px-5 py-2 text-sm font-semibold text-fg hover:bg-surface/75 transition-colors md:inline-flex"
@@ -98,20 +104,20 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
               {rightPillLabel}
             </button>
 
+            <Magnetic strength={20}>
             <a
               href="#contact"
-              className="rounded-full bg-accent px-5 py-2.5 sm:px-5 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white sm:px-5 hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               onClick={() => setMenuOpen(false)}
             >
               {rightCTA}
             </a>
+            </Magnetic>
 
+            {/* On mobile, move these into the menu so the navbar breathes */}
             <button
-              className="rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
-              onClick={() => {
-                document.documentElement.classList.toggle("dark");
-                localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-              }}
+              className="hidden sm:inline-flex rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
+              onClick={toggleDark}
               title="Toggle dark mode"
             >
               Dark
@@ -119,7 +125,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
 
             <button
               onClick={onReset}
-              className="rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
+              className="hidden sm:inline-flex rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
               title="Reset visitor choice"
             >
               Reset
@@ -180,6 +186,31 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
               >
                 {rightPillLabel}
               </button>
+
+              {/* Mobile-only: Dark + Reset live here */}
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:hidden">
+                <button
+                  type="button"
+                  onClick={() => {
+                    toggleDark();
+                    setMenuOpen(false);
+                  }}
+                  className="w-full rounded-2xl border border-border bg-surface/55 px-4 py-3 text-sm font-semibold text-fg hover:bg-surface/75 transition-colors"
+                >
+                  Dark
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    onReset?.();
+                    setMenuOpen(false);
+                  }}
+                  className="w-full rounded-2xl border border-border bg-surface/55 px-4 py-3 text-sm font-semibold text-fg hover:bg-surface/75 transition-colors"
+                >
+                  Reset
+                </button>
+              </div>
 
               <p className="mt-4 text-xs text-muted">Tip: Tap Tools Stack to see the full drawer.</p>
             </nav>

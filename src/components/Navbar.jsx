@@ -56,7 +56,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
   return (
     <>
       <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-slate-200/80 dark:bg-slate-950/55 dark:border-slate-700/70">
-        <div className="mx-auto flex w-full max-w-[85rem] items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <div className="mx-auto flex w-full max-w-[85rem] items-center justify-between px-5 py-4 sm:px-6 lg:px-8 lg:py-4">
           {/* Left: Logo + Desktop links */}
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fg text-bg font-semibold">
@@ -81,7 +81,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
             <button
               type="button"
               onClick={openMenu}
-              className="md:hidden inline-flex items-center justify-center rounded-full border border-border bg-surface/55 px-3 py-2 text-xs font-semibold text-fg hover:bg-surface/75 transition-colors"
+              className="md:hidden ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface/55 px-3 py-2 text-xs font-semibold text-fg hover:bg-surface/75 transition-colors"
               aria-label="Open menu"
             >
               ☰
@@ -89,7 +89,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
           </div>
 
           {/* Right: Desktop buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-3 sm:gap-3">
             <button
               type="button"
               className="hidden rounded-full border border-border bg-surface/55 px-5 py-2 text-sm font-semibold text-fg hover:bg-surface/75 transition-colors md:inline-flex"
@@ -100,14 +100,14 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
 
             <a
               href="#contact"
-              className="rounded-full bg-accent px-4 py-2 sm:px-5 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="rounded-full bg-accent px-5 py-2.5 sm:px-5 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               onClick={() => setMenuOpen(false)}
             >
               {rightCTA}
             </a>
 
             <button
-              className="rounded-full border border-border bg-surface/45 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
+              className="rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
               onClick={() => {
                 document.documentElement.classList.toggle("dark");
                 localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
@@ -119,7 +119,7 @@ export default function Navbar({ onReset, rightPillLabel = "Tools Stack", rightC
 
             <button
               onClick={onReset}
-              className="rounded-full border border-border bg-surface/45 px-3 py-2 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
+              className="rounded-full border border-border bg-surface/45 px-3.5 py-2.5 text-xs font-semibold text-muted hover:bg-surface/75 transition-colors"
               title="Reset visitor choice"
             >
               Reset

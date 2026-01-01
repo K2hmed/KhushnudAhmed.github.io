@@ -34,8 +34,16 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </div>
 
           <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-fg">
-            YourName builds <span className="text-accent">adaptive</span>{" "}
-            <span className="text-accent2">AI systems</span>
+            YourName builds {" "}
+            <span
+            className="gradient-text-pan font-semibold"
+            style={{
+              backgroundImage:
+              "linear-gradient(90deg, #E07A5F, #D6B77C, #E07A5F)",
+              }}
+              >
+              adaptive AI systems
+              </span>{" "}
             <br />
             for healthcare,
             <br />

@@ -29,12 +29,14 @@ export default function PortfolioView({ visitorType, onSwitch }) {
     <>
       {/* HERO */}
       <section id="home" className="grid gap-8 lg:grid-cols-2">
-        <div className="pt-6">
-          <div className="text-xs tracking-[0.22em] text-muted">
+        <div className="pt-4 sm:pt-6">
+          <div className="text-[11px] sm:text-xs tracking-[0.22em] text-muted">
             AI ENGINEER + DATA ANALYST · HEALTHCARE AI · TORONTO, ON · OPEN TO ROLES
           </div>
 
-          <h1 className="mt-6 font-display text-6xl font-semibold leading-[0.95] text-fg">
+          {/* Mobile-first type scale */}
+          <h1 className="mt-5 sm:mt-6 font-display font-semibold text-fg leading-[0.98]
+                         text-[44px] sm:text-6xl lg:text-6xl">
             Khushnud builds{" "}
             <span
               className="gradient-text-pan font-semibold"
@@ -52,18 +54,17 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             language intelligence.
           </h1>
 
-          <p className="mt-6 max-w-xl text-muted">
+          <p className="mt-5 sm:mt-6 max-w-xl text-muted text-[15px] sm:text-base leading-relaxed">
             Machine learning, data science, and analytics builder with hands-on
             experience in NLP, RAG, and predictive modeling. Comfortable taking
             models from idea to deployment-ready pipelines.
           </p>
 
-          <p className="mt-6 text-sm font-semibold text-accent">
+          <p className="mt-5 sm:mt-6 text-sm font-semibold text-accent">
             Scholarship / Award line · Hackathon win line
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {/* Primary CTA */}
+          <div className="mt-7 sm:mt-8 flex flex-wrap gap-3">
             <a
               href="#projects"
               className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white hover:brightness-95 active:brightness-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
@@ -71,7 +72,6 @@ export default function PortfolioView({ visitorType, onSwitch }) {
               View Projects
             </a>
 
-            {/* Secondary CTAs */}
             <a
               href="#skills"
               className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold text-fg hover:bg-surface/70 transition-colors"
@@ -90,7 +90,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
 
         <div className="space-y-4 lg:pt-10">
           {/* WHO'S VISITING CARD */}
-          <Card className="p-7">
+          <Card className="p-6 sm:p-7">
             <div className="text-xs tracking-widest text-muted">WHO’S VISITING?</div>
 
             <div className="mt-4 flex items-center gap-3">
@@ -121,8 +121,8 @@ export default function PortfolioView({ visitorType, onSwitch }) {
             </a>
           </Card>
 
-          {/* STATS */}
-          <Card className="grid grid-cols-3 gap-6 bg-surface/60 p-7">
+          {/* STATS (mobile: 1 col, sm: 3 col) */}
+          <Card className="grid grid-cols-1 gap-5 bg-surface/60 p-6 sm:grid-cols-3 sm:gap-6 sm:p-7">
             <Stat value="7,900+" label="Healthcare records modeled" />
             <Stat value="95%" label="Epilepsy prediction accuracy" />
             <Stat value="40%" label="Design iteration time reduced" />
@@ -131,7 +131,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
       </section>
 
       {/* TOP STRIP */}
-      <div className="mt-10 rounded-[28px] bg-surface/60 px-7 py-6 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
+      <div className="mt-8 sm:mt-10 rounded-[28px] bg-surface/60 px-6 py-6 sm:px-7 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur">
         <div className="space-y-5">
           <div>
             <div className="text-[11px] font-semibold tracking-[0.22em] text-muted">
@@ -345,7 +345,7 @@ export default function PortfolioView({ visitorType, onSwitch }) {
         title="Let’s connect"
         subtitle="Open to AI Engineer, ML Engineer, and data analyst roles. Available for tutoring support on ML projects."
       >
-        <div className="rounded-[28px] border border-border/70 bg-surface2/70 p-8 text-fg shadow-soft backdrop-blur">
+        <div className="rounded-[28px] border border-border/70 bg-surface2/70 p-7 sm:p-8 text-fg shadow-soft backdrop-blur">
           <div className="grid gap-8 lg:grid-cols-2">
             <div>
               <div className="text-xl font-semibold">Contact</div>
@@ -392,26 +392,13 @@ function Stat({ value, label }) {
   );
 }
 
-/**
- * PROJECTS: hover lift + subtle ring outline + better cover block + keyboard focus
- */
 function ProjectCard({ title }) {
   return (
     <Card className="flex h-full flex-col overflow-hidden p-0 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(0,0,0,0.14)]">
-      {/* image / cover */}
       <div className="h-44 bg-surface/60" />
-
-      {/* content */}
       <div className="flex flex-1 flex-col p-6">
-        <div className="text-lg font-semibold text-fg">
-          {title}
-        </div>
-
-        <p className="mt-2 text-muted">
-          Replace this with your 1–2 line impact statement.
-        </p>
-
-        {/* pushes CTA to the bottom so all cards match */}
+        <div className="text-lg font-semibold text-fg">{title}</div>
+        <p className="mt-2 text-muted">Replace this with your 1–2 line impact statement.</p>
         <button className="mt-auto pt-4 text-sm font-semibold text-muted hover:text-fg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
           SHOW MORE
         </button>
@@ -420,9 +407,6 @@ function ProjectCard({ title }) {
   );
 }
 
-/**
- * EXPERIENCE: stronger bullet readability using tokens
- */
 function Role({ title, org, dates, bullets }) {
   return (
     <Card>
@@ -443,9 +427,6 @@ function Role({ title, org, dates, bullets }) {
   );
 }
 
-/**
- * SKILLS: stronger bullet readability using tokens
- */
 function SkillCard({ title, items }) {
   return (
     <Card>

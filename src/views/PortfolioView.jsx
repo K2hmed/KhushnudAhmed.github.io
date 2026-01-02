@@ -5,6 +5,7 @@ import VisitorToggle from "../components/VisitorToggle";
 import Reveal from "../components/Reveal.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import Magnetic from "../components/Magnetic.jsx";
+import KpiStat from "../components/KpiStat.jsx";
 
 export default function PortfolioView({ visitorType, onSwitch }) {
   const isStudent = visitorType === "student";
@@ -128,10 +129,30 @@ export default function PortfolioView({ visitorType, onSwitch }) {
           </Card>
 
           {/* STATS (mobile: 1 col, sm: 3 col) */}
-          <Card className="grid grid-cols-1 gap-5 bg-surface/60 p-6 sm:grid-cols-3 sm:gap-6 sm:p-7">
-            <Stat value="7,900+" label="Healthcare records modeled" />
-            <Stat value="95%" label="Epilepsy prediction accuracy" />
-            <Stat value="40%" label="Design iteration time reduced" />
+          <Card className="grid grid-cols-1 items-start gap-5 bg-surface/60 p-6 sm:grid-cols-3 sm:gap-6 sm:p-7">
+            <KpiStat 
+              value={7900} 
+              suffix="+"
+              label="Healthcare records modeled" 
+            />
+            
+            <KpiStat
+              value={95}
+              suffix="%"
+              ring
+              ringMax={100}
+              ringColorClass="stroke-orange-500/90 dark:stroke-orange-400/90"
+              label="Epilepsy prediction accuracy"
+            />
+
+            <KpiStat
+              value={40}
+              suffix="%"
+              ring
+              ringMax={100}
+              ringColorClass="stroke-teal-600/85 dark:stroke-teal-400/85"
+              label="Design iteration time reduced"
+            />
           </Card>
         </div>
       </section>
